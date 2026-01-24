@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>ಸದಸ್ಯತ್ವ ನೋಂದಣಿ | Member Registration - Karnataka Banjara Sahitya Parishattu</title>
+    <meta name="description" content="Join Karnataka Banjara Sahitya Parishattu - Register as a member today">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Registration Page Specific Styles -->
+    <style>
+        .registration-page {
+            min-height: 100vh;
+            padding-top: calc(var(--header-height) + var(--top-bar-height) + var(--space-3xl));
+            padding-bottom: var(--space-4xl);
+            background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-off-white) 100%);
+        }
+        
+        .registration-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        .registration-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .registration-header h1 {
+            font-size: var(--text-3xl);
+            color: var(--color-primary);
+            margin-bottom: var(--space-md);
+        }
+        
+        .registration-header p {
+            font-size: var(--text-lg);
+            color: var(--color-text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .registration-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+        }
+        
+        .registration-card-header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            padding: var(--space-xl);
+            text-align: center;
+            color: var(--color-white);
+        }
+        
+        .registration-card-header h2 {
+            color: var(--color-white);
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .registration-card-header p {
+            opacity: 0.9;
+            font-size: var(--text-sm);
+        }
+        
+        .membership-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            padding: var(--space-xl);
+            background: var(--color-cream);
+            border-bottom: 1px solid var(--color-light-gray);
+        }
+        
+        .membership-type {
+            position: relative;
+            padding: var(--space-lg);
+            background: var(--color-white);
+            border: 2px solid var(--color-light-gray);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-align: center;
+        }
+        
+        .membership-type:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+        
+        .membership-type.selected {
+            border-color: var(--color-primary);
+            background: rgba(139, 38, 53, 0.05);
+        }
+        
+        .membership-type input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+        
+        .membership-type-icon {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .membership-type-name {
+            font-weight: 600;
+            color: var(--color-dark);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .membership-type-price {
+            font-size: var(--text-lg);
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        
+        .membership-type-duration {
+            font-size: var(--text-xs);
+            color: var(--color-text-muted);
+        }
+        
+        .registration-form {
+            padding: var(--space-2xl);
+        }
+        
+        .form-section {
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .form-section-title {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-sm);
+            border-bottom: 2px solid var(--color-light-gray);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .form-section-title i {
+            color: var(--color-secondary);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+        }
+        
+        .form-grid .form-group.full-width {
+            grid-column: span 2;
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-md);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: var(--space-sm);
+            font-weight: 500;
+            color: var(--color-text);
+        }
+        
+        .form-group label .required {
+            color: var(--color-primary);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--color-light-gray);
+            border-radius: var(--radius-md);
+            font-size: var(--text-base);
+            transition: all var(--transition-fast);
+            background: var(--color-white);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 4px rgba(139, 38, 53, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-group small {
+            display: block;
+            margin-top: var(--space-xs);
+            color: var(--color-text-muted);
+            font-size: var(--text-xs);
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-top: 4px;
+        }
+        
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--color-light-gray);
+        }
+        
+        .benefits-list {
+            background: var(--color-cream);
+            padding: var(--space-xl);
+            border-radius: var(--radius-md);
+            margin-top: var(--space-2xl);
+        }
+        
+        .benefits-list h3 {
+            font-size: var(--text-lg);
+            margin-bottom: var(--space-lg);
+            color: var(--color-dark);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .benefit-item i {
+            color: var(--color-primary);
+        }
+        
+        .benefit-item span {
+            font-size: var(--text-sm);
+            color: var(--color-text);
+        }
+        
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .form-actions .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- ==================== HEADER / NAVIGATION ==================== -->
+    <header class="header" id="header">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="contact-info">
+                        <span><i class="fas fa-phone"></i> +91 xxxx xxxx</span>
+                        <span><i class="fas fa-envelope"></i> banjarasahityaparishattu@gmail.com</span>
+                    </div>
+                    <div class="top-bar-right">
+                        <!-- Language Switcher -->
+                        <div class="language-switcher" id="language-switcher">
+                            <button class="lang-btn active" data-lang="kn" aria-label="ಕನ್ನಡ">
+                                <span class="lang-flag">ಕ</span>
+                                <span class="lang-name">ಕನ್ನಡ</span>
+                            </button>
+                            <span class="lang-divider">|</span>
+                            <button class="lang-btn" data-lang="en" aria-label="English">
+                                <span class="lang-flag">A</span>
+                                <span class="lang-name">English</span>
+                            </button>
+                        </div>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Navigation -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <img src="images/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="logo-image">
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-kannada">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು</span>
+                            <span class="logo-english">Karnataka Banjara Sahitya Parishattu</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Navigation Menu -->
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
+                        <li><a href="index.html#about" class="nav-link" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
+                        <li><a href="index.html#events" class="nav-link" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
+                        <li><a href="index.html#news" class="nav-link" data-lang-kn="ಸುದ್ದಿ" data-lang-en="News">ಸುದ್ದಿ</a></li>
+                        <li><a href="index.html#contact" class="nav-link" data-lang-kn="ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact">ಸಂಪರ್ಕಿಸಿ</a></li>
+                    </ul>
+                    
+                    <!-- Hamburger Menu -->
+                    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ==================== REGISTRATION PAGE ==================== -->
+    <main class="registration-page">
+        <div class="registration-container">
+            
+            <!-- Page Header -->
+            <div class="registration-header">
+                <h1 data-lang-kn="ಸದಸ್ಯತ್ವ ನೋಂದಣಿ" data-lang-en="Membership Registration">ಸದಸ್ಯತ್ವ ನೋಂದಣಿ</h1>
+                <p data-lang-kn="ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತಿನ ಸದಸ್ಯರಾಗಿ ನೋಂದಾಯಿಸಿ ಮತ್ತು ನಮ್ಮ ಸಾಹಿತ್ಯಿಕ ಸಮುದಾಯದ ಭಾಗವಾಗಿ" data-lang-en="Register as a member of Karnataka Banjara Sahitya Parishattu and become part of our literary community">
+                    ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತಿನ ಸದಸ್ಯರಾಗಿ ನೋಂದಾಯಿಸಿ ಮತ್ತು ನಮ್ಮ ಸಾಹಿತ್ಯಿಕ ಸಮುದಾಯದ ಭಾಗವಾಗಿ
+                </p>
+            </div>
+            
+            <!-- Registration Card -->
+            <div class="registration-card">
+                
+                <!-- Card Header -->
+                <div class="registration-card-header">
+                    <h2 data-lang-kn="ಸದಸ್ಯತ್ವ ಅರ್ಜಿ" data-lang-en="Membership Application">ಸದಸ್ಯತ್ವ ಅರ್ಜಿ</h2>
+                    <p data-lang-kn="ದಯವಿಟ್ಟು ಎಲ್ಲಾ ವಿವರಗಳನ್ನು ನಿಖರವಾಗಿ ಭರ್ತಿ ಮಾಡಿ" data-lang-en="Please fill in all details accurately">ದಯವಿಟ್ಟು ಎಲ್ಲಾ ವಿವರಗಳನ್ನು ನಿಖರವಾಗಿ ಭರ್ತಿ ಮಾಡಿ</p>
+                </div>
+                
+                <!-- Membership Types -->
+                <div class="membership-types">
+                    <label class="membership-type selected">
+                        <input type="radio" name="membership_type" value="annual" checked>
+                        <div class="membership-type-icon"><i class="fas fa-user"></i></div>
+                        <div class="membership-type-name" data-lang-kn="ವಾರ್ಷಿಕ ಸದಸ್ಯತ್ವ" data-lang-en="Annual Membership">ವಾರ್ಷಿಕ ಸದಸ್ಯತ್ವ</div>
+                        <div class="membership-type-price">₹500</div>
+                        <div class="membership-type-duration" data-lang-kn="ಪ್ರತಿ ವರ್ಷ" data-lang-en="per year">ಪ್ರತಿ ವರ್ಷ</div>
+                    </label>
+                    
+                    <label class="membership-type">
+                        <input type="radio" name="membership_type" value="lifetime">
+                        <div class="membership-type-icon"><i class="fas fa-crown"></i></div>
+                        <div class="membership-type-name" data-lang-kn="ಆಜೀವ ಸದಸ್ಯತ್ವ" data-lang-en="Lifetime Membership">ಆಜೀವ ಸದಸ್ಯತ್ವ</div>
+                        <div class="membership-type-price">₹5,000</div>
+                        <div class="membership-type-duration" data-lang-kn="ಒಂದು ಬಾರಿ" data-lang-en="one time">ಒಂದು ಬಾರಿ</div>
+                    </label>
+                    
+                    <label class="membership-type">
+                        <input type="radio" name="membership_type" value="student">
+                        <div class="membership-type-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="membership-type-name" data-lang-kn="ವಿದ್ಯಾರ್ಥಿ ಸದಸ್ಯತ್ವ" data-lang-en="Student Membership">ವಿದ್ಯಾರ್ಥಿ ಸದಸ್ಯತ್ವ</div>
+                        <div class="membership-type-price">₹200</div>
+                        <div class="membership-type-duration" data-lang-kn="ಪ್ರತಿ ವರ್ಷ" data-lang-en="per year">ಪ್ರತಿ ವರ್ಷ</div>
+                    </label>
+                </div>
+                
+                <!-- Registration Form -->
+                <form class="registration-form" id="registration-form">
+                    
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-user"></i>
+                            <span data-lang-kn="ವೈಯಕ್ತಿಕ ಮಾಹಿತಿ" data-lang-en="Personal Information">ವೈಯಕ್ತಿಕ ಮಾಹಿತಿ</span>
+                        </h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label data-lang-kn="ಪೂರ್ಣ ಹೆಸರು" data-lang-en="Full Name">
+                                    ಪೂರ್ಣ ಹೆಸರು <span class="required">*</span>
+                                </label>
+                                <input type="text" id="full_name" name="full_name" required 
+                                       placeholder="Enter your full name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-lang-kn="ತಂದೆ/ಪತಿಯ ಹೆಸರು" data-lang-en="Father's/Spouse's Name">
+                                    ತಂದೆ/ಪತಿಯ ಹೆಸರು <span class="required">*</span>
+                                </label>
+                                <input type="text" id="guardian_name" name="guardian_name" required
+                                       placeholder="Enter father's or spouse's name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-lang-kn="ಜನ್ಮ ದಿನಾಂಕ" data-lang-en="Date of Birth">
+                                    ಜನ್ಮ ದಿನಾಂಕ <span class="required">*</span>
+                                </label>
+                                <input type="date" id="dob" name="dob" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-lang-kn="ಲಿಂಗ" data-lang-en="Gender">
+                                    ಲಿಂಗ <span class="required">*</span>
+                                </label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">-- Select --</option>
+                                    <option value="male" data-lang-kn="ಪುರುಷ" data-lang-en="Male">ಪುರುಷ</option>
+                                    <option value="female" data-lang-kn="ಮಹಿಳೆ" data-lang-en="Female">ಮಹಿಳೆ</option>
+                                    <option value="other" data-lang-kn="ಇತರೆ" data-lang-en="Other">ಇತರೆ</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-lang-kn="ವೃತ್ತಿ" data-lang-en="Occupation">
+                                    ವೃತ್ತಿ <span class="required">*</span>
+                                </label>
+                                <input type="text" id="occupation" name="occupation" required
+                                       placeholder="Enter your occupation">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-lang-kn="ಶಿಕ್ಷಣ" data-lang-en="Education">
+                                    ಶಿಕ್ಷಣ <span class="required">*</span>
+                                </label>
+                                <input type="text" id="education" name="education" required
+                                       placeholder="Enter your highest qualification">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-address-card"></i>
+                            <span data-lang-kn="ಸಂಪರ್ಕ ಮಾಹಿತಿ" data-lang-en="Contact Information">ಸಂಪರ್ಕ ಮಾಹಿತಿ</span>
+                        </h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label data-lang-kn="ಮೊಬೈಲ್ ಸಂಖ್ಯೆ" data-lang-en="Mobile Number">
+                                    ಮೊಬೈಲ್ ಸಂಖ್ಯೆ <span class="required">*</span>
+                                </label>
+                                <input type="tel" id="mobile" name="mobile" required
+                                       placeholder="+91 XXXXX XXXXX" pattern="[0-9]{10}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-lang-kn="ವಾಟ್ಸಾಪ್ ಸಂಖ್ಯೆ" data-lang-en="WhatsApp Number">
+                                    ವಾಟ್ಸಾಪ್ ಸಂಖ್ಯೆ
+                                </label>
+                                <input type="tel" id="whatsapp" name="whatsapp"
+                                       placeholder="+91 XXXXX XXXXX">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-lang-kn="ಇಮೇಲ್ ವಿಳಾಸ" data-lang-en="Email Address">
+                                    ಇಮೇಲ್ ವಿಳಾಸ <span class="required">*</span>
+                                </label>
+                                <input type="email" id="email" name="email" required
+                                       placeholder="your.email@example.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label data-lang-kn="ಜಿಲ್ಲೆ" data-lang-en="District">
+                                    ಜಿಲ್ಲೆ <span class="required">*</span>
+                                </label>
+                                <input type="text" id="district" name="district" required
+                                       placeholder="Enter your district">
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label data-lang-kn="ಪೂರ್ಣ ವಿಳಾಸ" data-lang-en="Full Address">
+                                    ಪೂರ್ಣ ವಿಳಾಸ <span class="required">*</span>
+                                </label>
+                                <textarea id="address" name="address" required
+                                          placeholder="Enter your complete address with PIN code"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Literary Interests -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-book"></i>
+                            <span data-lang-kn="ಸಾಹಿತ್ಯಿಕ ಆಸಕ್ತಿಗಳು" data-lang-en="Literary Interests">ಸಾಹಿತ್ಯಿಕ ಆಸಕ್ತಿಗಳು</span>
+                        </h3>
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label data-lang-kn="ನಿಮ್ಮ ಸಾಹಿತ್ಯಿಕ ಆಸಕ್ತಿಗಳು" data-lang-en="Your Literary Interests">
+                                    ನಿಮ್ಮ ಸಾಹಿತ್ಯಿಕ ಆಸಕ್ತಿಗಳು
+                                </label>
+                                <textarea id="interests" name="interests"
+                                          placeholder="Poetry, Short Stories, Folk Literature, Research, etc."></textarea>
+                                <small data-lang-kn="ನೀವು ಆಸಕ್ತಿ ಹೊಂದಿರುವ ಸಾಹಿತ್ಯ ಪ್ರಕಾರಗಳನ್ನು ತಿಳಿಸಿ" data-lang-en="Mention the literary genres you are interested in">
+                                    ನೀವು ಆಸಕ್ತಿ ಹೊಂದಿರುವ ಸಾಹಿತ್ಯ ಪ್ರಕಾರಗಳನ್ನು ತಿಳಿಸಿ
+                                </small>
+                            </div>
+                            
+                            <div class="form-group full-width">
+                                <label data-lang-kn="ಪ್ರಕಟಿತ ಕೃತಿಗಳು (ಯಾವುದಾದರೂ ಇದ್ದಲ್ಲಿ)" data-lang-en="Published Works (if any)">
+                                    ಪ್ರಕಟಿತ ಕೃತಿಗಳು (ಯಾವುದಾದರೂ ಇದ್ದಲ್ಲಿ)
+                                </label>
+                                <textarea id="publications" name="publications"
+                                          placeholder="List any books, articles, or poems you have published"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Terms and Submit -->
+                    <div class="form-section">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms" data-lang-kn="ನಾನು ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತಿನ ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳನ್ನು ಒಪ್ಪುತ್ತೇನೆ" data-lang-en="I agree to the terms and conditions of Karnataka Banjara Sahitya Parishattu">
+                                ನಾನು ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತಿನ ನಿಯಮಗಳು ಮತ್ತು ಷರತ್ತುಗಳನ್ನು ಒಪ್ಪುತ್ತೇನೆ <span class="required">*</span>
+                            </label>
+                        </div>
+                        
+                        <div class="checkbox-group" style="margin-top: var(--space-md);">
+                            <input type="checkbox" id="newsletter" name="newsletter" checked>
+                            <label for="newsletter" data-lang-kn="ಸುದ್ದಿಪತ್ರ ಮತ್ತು ಕಾರ್ಯಕ್ರಮ ನವೀಕರಣಗಳನ್ನು ಸ್ವೀಕರಿಸಲು ನಾನು ಬಯಸುತ್ತೇನೆ" data-lang-en="I want to receive newsletter and event updates">
+                                ಸುದ್ದಿಪತ್ರ ಮತ್ತು ಕಾರ್ಯಕ್ರಮ ನವೀಕರಣಗಳನ್ನು ಸ್ವೀಕರಿಸಲು ನಾನು ಬಯಸುತ್ತೇನೆ
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <a href="index.html" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i>
+                            <span data-lang-kn="ಹಿಂದೆ ಹೋಗಿ" data-lang-en="Go Back">ಹಿಂದೆ ಹೋಗಿ</span>
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            <span data-lang-kn="ನೋಂದಣಿ ಸಲ್ಲಿಸಿ" data-lang-en="Submit Registration">ನೋಂದಣಿ ಸಲ್ಲಿಸಿ</span>
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Benefits List -->
+                <div class="benefits-list">
+                    <h3 data-lang-kn="ಸದಸ್ಯತ್ವ ಪ್ರಯೋಜನಗಳು" data-lang-en="Membership Benefits">ಸದಸ್ಯತ್ವ ಪ್ರಯೋಜನಗಳು</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-lang-kn="ಎಲ್ಲಾ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ಉಚಿತ ಪ್ರವೇಶ" data-lang-en="Free entry to all events">ಎಲ್ಲಾ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ಉಚಿತ ಪ್ರವೇಶ</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-lang-kn="ತ್ರೈಮಾಸಿಕ ಸುದ್ದಿಪತ್ರ" data-lang-en="Quarterly newsletter">ತ್ರೈಮಾಸಿಕ ಸುದ್ದಿಪತ್ರ</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-lang-kn="ಪ್ರಕಟಣೆಗಳ ಮೇಲೆ ರಿಯಾಯಿತಿ" data-lang-en="Discounts on publications">ಪ್ರಕಟಣೆಗಳ ಮೇಲೆ ರಿಯಾಯಿತಿ</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-lang-kn="ಡಿಜಿಟಲ್ ಆರ್ಕೈವ್‌ಗೆ ಪ್ರವೇಶ" data-lang-en="Access to digital archive">ಡಿಜಿಟಲ್ ಆರ್ಕೈವ್‌ಗೆ ಪ್ರವೇಶ</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-lang-kn="ಸಾಹಿತ್ಯಿಕ ಕಾರ್ಯಾಗಾರಗಳು" data-lang-en="Literary workshops">ಸಾಹಿತ್ಯಿಕ ಕಾರ್ಯಾಗಾರಗಳು</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-lang-kn="ನೆಟ್‌ವರ್ಕಿಂಗ್ ಅವಕಾಶಗಳು" data-lang-en="Networking opportunities">ನೆಟ್‌ವರ್ಕಿಂಗ್ ಅವಕಾಶಗಳು</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-pattern"></div>
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        © 2026 Karnataka Banjara Sahitya Parishattu. All Rights Reserved.
+                    </p>
+                    <ul class="footer-legal">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Main JavaScript -->
+    <script src="js/script.js"></script>
+    
+    <!-- Registration Page Script -->
+    <script>
+        // Membership type selection
+        const membershipTypes = document.querySelectorAll('.membership-type');
+        membershipTypes.forEach(type => {
+            type.addEventListener('click', function() {
+                membershipTypes.forEach(t => t.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        
+        // Form submission
+        const registrationForm = document.getElementById('registration-form');
+        if (registrationForm) {
+            registrationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                
+                // Show loading state
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                submitBtn.disabled = true;
+                
+                // Simulate form submission (replace with actual backend)
+                setTimeout(function() {
+                    // Show success message
+                    alert('ನೋಂದಣಿ ಯಶಸ್ವಿಯಾಗಿದೆ! ನಾವು ಶೀಘ್ರದಲ್ಲೇ ನಿಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸುತ್ತೇವೆ.\n\nRegistration successful! We will contact you soon.');
+                    
+                    // Reset form
+                    registrationForm.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Redirect to home
+                    window.location.href = 'index.html';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
