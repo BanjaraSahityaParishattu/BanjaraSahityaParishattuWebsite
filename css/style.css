@@ -2050,16 +2050,36 @@ input, textarea, select {
 /* Mobile landscape and below */
 @media (max-width: 768px) {
     :root {
-        --header-height: 70px;
+        --header-height: 60px;
+        --top-bar-height: 35px;
     }
     
     /* Top bar adjustments */
+    .top-bar {
+        height: var(--top-bar-height);
+    }
+    
     .contact-info {
         display: none;
     }
     
     .social-icons {
         margin: 0 auto;
+    }
+    
+    .social-icons a {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
+    }
+    
+    .lang-switcher {
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    .lang-btn {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: var(--text-xs);
     }
     
     /* Mobile Navigation */
@@ -2102,10 +2122,24 @@ input, textarea, select {
         max-height: 0;
         overflow: hidden;
         transition: max-height var(--transition-base);
+        background: var(--color-light-gray);
+        border-radius: var(--radius-sm);
+        margin-top: var(--space-xs);
     }
     
     .dropdown.active .dropdown-menu {
         max-height: 200px;
+        padding: var(--space-sm) 0;
+    }
+    
+    .dropdown-menu li a {
+        text-align: center;
+        padding: var(--space-sm) var(--space-md);
+    }
+    
+    .dropdown.active > .nav-link {
+        background: rgba(196, 30, 58, 0.1);
+        border-radius: var(--radius-sm);
     }
     
     /* Hero adjustments */
@@ -2183,18 +2217,45 @@ input, textarea, select {
     }
     
     /* Header logo adjustments for mobile */
+    .navbar {
+        height: 60px;
+        padding: var(--space-xs) 0;
+    }
+    
     .logo-icon {
-        width: 60px;
-        height: 50px;
+        width: 45px;
+        height: 35px;
         margin-top: 0;
+        padding: 2px;
     }
     
-    .logo-kannada {
-        font-size: var(--text-sm);
+    .logo {
+        gap: var(--space-xs);
     }
     
-    .logo-english {
-        font-size: var(--text-xs);
+    /* Fix mobile menu styling */
+    .nav-menu {
+        background: var(--color-white);
+        z-index: 1000;
+    }
+    
+    .nav-link {
+        text-align: center;
+        background: transparent;
+    }
+    
+    .nav-link.active {
+        background: rgba(196, 30, 58, 0.1);
+        border-radius: var(--radius-sm);
+    }
+    
+    .dropdown-toggle {
+        justify-content: center;
+    }
+    
+    /* Hide logo text on tablets and mobile */
+    .logo-text {
+        display: none;
     }
     
     /* Gallery adjustments */
