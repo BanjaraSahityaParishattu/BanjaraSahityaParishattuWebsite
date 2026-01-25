@@ -255,7 +255,14 @@ function initSmoothScroll() {
                 e.preventDefault();
                 
                 const headerHeight = document.getElementById('header').offsetHeight;
-                const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+                
+                // Apply extra offset to section links (except Contact which is at page bottom)
+                let extraOffset = 0;
+                if (href !== '#contact') {
+                    extraOffset = 48; // Half inch = ~48px, scroll higher
+                }
+                
+                const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight + extraOffset;
                 
                 window.scrollTo({
                     top: targetPosition,

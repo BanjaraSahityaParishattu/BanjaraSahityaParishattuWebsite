@@ -140,48 +140,53 @@
             color: var(--color-text-muted);
         }
         
-        /* Masonry Gallery Grid */
+        /* Clean Uniform Gallery Grid */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: var(--space-md);
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
         }
         
         .gallery-item {
             position: relative;
-            border-radius: var(--radius-md);
+            border-radius: 12px;
             overflow: hidden;
             cursor: pointer;
             aspect-ratio: 4/3;
-            background: var(--color-light-gray);
+            background: #1a1a2e;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
         
-        .gallery-item.tall {
-            grid-row: span 2;
-            aspect-ratio: auto;
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
         }
         
+        /* Remove tall/wide for uniform grid */
+        .gallery-item.tall,
         .gallery-item.wide {
-            grid-column: span 2;
+            grid-row: span 1;
+            grid-column: span 1;
         }
         
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform var(--transition-slow);
+            transition: transform 0.5s ease;
         }
         
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
         }
         
         .gallery-item-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.7) 100%);
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.85) 100%);
             opacity: 0;
-            transition: opacity var(--transition-base);
+            transition: opacity 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -195,7 +200,8 @@
         .gallery-item-caption {
             color: var(--color-white);
             font-size: var(--text-sm);
-            font-weight: 500;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         
         .gallery-item-zoom {
@@ -203,99 +209,143 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
-            width: 50px;
-            height: 50px;
-            background: var(--color-white);
-            border-radius: var(--radius-full);
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--color-primary);
-            font-size: 1.25rem;
-            transition: transform var(--transition-base);
+            font-size: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
         
         .gallery-item:hover .gallery-item-zoom {
             transform: translate(-50%, -50%) scale(1);
         }
         
-        /* Lightbox */
+        /* Enhanced Lightbox */
         .lightbox {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0, 0, 0, 0.97);
             z-index: 10000;
-            display: none;
+            display: flex;
             align-items: center;
             justify-content: center;
-            padding: var(--space-xl);
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
         }
         
         .lightbox.active {
-            display: flex;
+            opacity: 1;
+            visibility: visible;
         }
         
         .lightbox-content {
             position: relative;
             max-width: 90vw;
             max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
         }
         
         .lightbox-content img {
             max-width: 100%;
-            max-height: 85vh;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-xl);
+            max-height: 80vh;
+            border-radius: 12px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+            object-fit: contain;
+            background: #0a0a0a;
         }
         
         .lightbox-caption {
             text-align: center;
             color: var(--color-white);
-            margin-top: var(--space-md);
-            font-size: var(--text-base);
+            margin-top: 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .lightbox-counter {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            background: rgba(0,0,0,0.6);
+            padding: 8px 24px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
         }
         
         .lightbox-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            background: none;
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            background: rgba(255,255,255,0.1);
             border: none;
             color: var(--color-white);
-            font-size: 2rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            transition: color var(--transition-fast);
+            transition: all 0.3s ease;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
         }
         
         .lightbox-close:hover {
-            color: var(--color-secondary);
+            background: var(--color-primary);
+            transform: rotate(90deg);
         }
         
         .lightbox-nav {
-            position: absolute;
+            position: fixed;
             top: 50%;
             transform: translateY(-50%);
             background: rgba(255,255,255,0.1);
             border: none;
             color: var(--color-white);
-            font-size: 2rem;
-            width: 50px;
-            height: 50px;
-            border-radius: var(--radius-full);
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: all var(--transition-fast);
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
         }
         
         .lightbox-nav:hover {
             background: var(--color-primary);
+            transform: translateY(-50%) scale(1.1);
         }
         
         .lightbox-prev {
-            left: -70px;
+            left: 25px;
         }
         
         .lightbox-next {
-            right: -70px;
+            right: 25px;
         }
         
         /* Upload Info Section */
@@ -322,13 +372,23 @@
         }
         
         /* Responsive */
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
             }
             
-            .gallery-item.wide {
+            .gallery-item.wide,
+            .gallery-item.tall {
                 grid-column: span 1;
+                grid-row: span 1;
             }
             
             .event-gallery-header {
@@ -338,7 +398,32 @@
             }
             
             .lightbox-nav {
-                display: none;
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            
+            .lightbox-prev {
+                left: 10px;
+            }
+            
+            .lightbox-next {
+                right: 10px;
+            }
+            
+            .lightbox-close {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .lightbox-counter {
+                top: 15px;
+                left: 15px;
+                transform: none;
+                font-size: 0.8rem;
+                padding: 6px 16px;
             }
             
             .filter-tabs {
@@ -346,16 +431,29 @@
                 overflow-x: auto;
                 padding: 0 var(--space-md);
                 flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
             }
             
             .filter-tab {
                 white-space: nowrap;
+                flex-shrink: 0;
             }
         }
         
         @media (max-width: 480px) {
             .gallery-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .gallery-item {
+                border-radius: 8px;
+            }
+            
+            .gallery-item-zoom {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -403,7 +501,7 @@
                     <!-- Logo -->
                     <a href="index.html" class="logo">
                         <div class="logo-icon">
-                            <img src="images/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="logo-image">
+                            <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="logo-image">
                         </div>
                         <div class="logo-text">
                             <span class="logo-kannada">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು</span>
@@ -453,9 +551,9 @@
                 <div class="filter-tabs">
                     <button class="filter-tab active" data-filter="all" data-lang-kn="ಎಲ್ಲಾ ಫೋಟೋಗಳು" data-lang-en="All Photos">ಎಲ್ಲಾ ಫೋಟೋಗಳು</button>
                     <button class="filter-tab" data-filter="sammelana" data-lang-kn="ಸಾಹಿತ್ಯ ಸಮ್ಮೇಳನ" data-lang-en="Literary Conference">ಸಾಹಿತ್ಯ ಸಮ್ಮೇಳನ</button>
-                    <button class="filter-tab" data-filter="workshop" data-lang-kn="ಕಾರ್ಯಾಗಾರ" data-lang-en="Workshops">ಕಾರ್ಯಾಗಾರ</button>
+                    <button class="filter-tab" data-filter="workshop" data-lang-kn="ಕಾರ್ಯಾಗಾರಗಳು" data-lang-en="Workshops">ಕಾರ್ಯಾಗಾರ</button>
                     <button class="filter-tab" data-filter="awards" data-lang-kn="ಪ್ರಶಸ್ತಿ ಪ್ರದಾನ" data-lang-en="Award Ceremony">ಪ್ರಶಸ್ತಿ ಪ್ರದಾನ</button>
-                    <button class="filter-tab" data-filter="cultural" data-lang-kn="ಸಾಂಸ್ಕೃತಿಕ" data-lang-en="Cultural Events">ಸಾಂಸ್ಕೃತಿಕ</button>
+                    <button class="filter-tab" data-filter="cultural" data-lang-kn="ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Cultural Events">ಸಾಂಸ್ಕೃತಿಕ</button>
                     <button class="filter-tab" data-filter="bookrelease" data-lang-kn="ಪುಸ್ತಕ ಬಿಡುಗಡೆ" data-lang-en="Book Release">ಪುಸ್ತಕ ಬಿಡುಗಡೆ</button>
                 </div>
             </div>
@@ -465,169 +563,326 @@
         <section class="gallery-container">
             <div class="container">
                 
-                <!-- Event 1: Sahitya Sammelana 2025 -->
+                <!-- Literary Conference / Sahitya Sammelana -->
                 <div class="event-gallery-section" data-category="sammelana">
                     <div class="event-gallery-header">
                         <div class="event-gallery-title">
-                            <h2 data-lang-kn="40ನೇ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಸಮ್ಮೇಳನ 2025" data-lang-en="40th Banjara Sahitya Sammelana 2025">40ನೇ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಸಮ್ಮೇಳನ 2025</h2>
-                            <span class="event-date-badge">
-                                <i class="far fa-calendar"></i>
-                                March 15-17, 2025
-                            </span>
+                            <h2 data-lang-kn="ಸಾಹಿತ್ಯ ಸಮ್ಮೇಳನ" data-lang-en="Literary Conference">ಸಾಹಿತ್ಯ ಸಮ್ಮೇಳನ</h2>
                         </div>
-                        <span class="photo-count">12 photos</span>
+                        <span class="photo-count">7 photos</span>
                     </div>
                     <div class="gallery-grid">
-                        <div class="gallery-item wide" data-src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800" data-caption="Inauguration ceremony">
-                            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600" alt="Inauguration ceremony">
+                        <div class="gallery-item wide" data-src="images/GalleryPage/LiteraryConference/literary-conf-1.jpeg" data-caption="Literary Conference">
+                            <img src="images/GalleryPage/LiteraryConference/literary-conf-1.jpeg" alt="Literary Conference">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Inauguration ceremony</span>
+                                <span class="gallery-item-caption">Literary Conference</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
-                        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800" data-caption="Chief Guest Address">
-                            <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400" alt="Chief Guest Address">
+                        <div class="gallery-item" data-src="images/GalleryPage/LiteraryConference/literary-conf-2.jpeg" data-caption="Literary Conference">
+                            <img src="images/GalleryPage/LiteraryConference/literary-conf-2.jpeg" alt="Literary Conference">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Chief Guest Address</span>
+                                <span class="gallery-item-caption">Literary Conference</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
-                        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800" data-caption="Audience at the conference">
-                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400" alt="Audience">
+                        <div class="gallery-item" data-src="images/GalleryPage/LiteraryConference/literary-conf-3.jpg" data-caption="Literary Conference">
+                            <img src="images/GalleryPage/LiteraryConference/literary-conf-3.jpg" alt="Literary Conference">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Audience at the conference</span>
+                                <span class="gallery-item-caption">Literary Conference</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
-                        <div class="gallery-item tall" data-src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800" data-caption="Book Exhibition">
-                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400" alt="Book Exhibition">
+                        <div class="gallery-item tall" data-src="images/GalleryPage/LiteraryConference/literary-conf-4.jpg" data-caption="Literary Conference">
+                            <img src="images/GalleryPage/LiteraryConference/literary-conf-4.jpg" alt="Literary Conference">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Book Exhibition</span>
+                                <span class="gallery-item-caption">Literary Conference</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
-                        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800" data-caption="Panel Discussion">
-                            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400" alt="Panel Discussion">
+                        <div class="gallery-item" data-src="images/GalleryPage/LiteraryConference/literary-conf-5.jpeg" data-caption="Literary Conference">
+                            <img src="images/GalleryPage/LiteraryConference/literary-conf-5.jpeg" alt="Literary Conference">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Panel Discussion</span>
+                                <span class="gallery-item-caption">Literary Conference</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
-                        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800" data-caption="Cultural Performance">
-                            <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=400" alt="Cultural Performance">
+                        <div class="gallery-item" data-src="images/GalleryPage/LiteraryConference/literary-conf-6.jpeg" data-caption="Literary Conference">
+                            <img src="images/GalleryPage/LiteraryConference/literary-conf-6.jpeg" alt="Literary Conference">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Cultural Performance</span>
+                                <span class="gallery-item-caption">Literary Conference</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item wide" data-src="images/GalleryPage/LiteraryConference/literary-conf-7.jpeg" data-caption="Literary Conference">
+                            <img src="images/GalleryPage/LiteraryConference/literary-conf-7.jpeg" alt="Literary Conference">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Literary Conference</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Event 2: Poetry Workshop -->
+                <!-- Workshops -->
                 <div class="event-gallery-section" data-category="workshop">
                     <div class="event-gallery-header">
                         <div class="event-gallery-title">
-                            <h2 data-lang-kn="ಕಾವ್ಯ ರಚನಾ ಕಾರ್ಯಾಗಾರ" data-lang-en="Poetry Writing Workshop">ಕಾವ್ಯ ರಚನಾ ಕಾರ್ಯಾಗಾರ</h2>
-                            <span class="event-date-badge">
-                                <i class="far fa-calendar"></i>
-                                January 20, 2025
-                            </span>
+                            <h2 data-lang-kn="ಕಾರ್ಯಾಗಾರಗಳು" data-lang-en="Workshops">ಕಾರ್ಯಾಗಾರಗಳು</h2>
                         </div>
-                        <span class="photo-count">8 photos</span>
+                        <span class="photo-count">7 photos</span>
                     </div>
                     <div class="gallery-grid">
-                        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800" data-caption="Workshop session">
-                            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400" alt="Workshop session">
+                        <div class="gallery-item wide" data-src="images/GalleryPage/Workshops/literary-workshop-1.jpeg" data-caption="Literary Workshop">
+                            <img src="images/GalleryPage/Workshops/literary-workshop-1.jpeg" alt="Literary Workshop">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Workshop session</span>
+                                <span class="gallery-item-caption">Literary Workshop</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
-                        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=800" data-caption="Participants writing">
-                            <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400" alt="Participants writing">
+                        <div class="gallery-item" data-src="images/GalleryPage/Workshops/literary-workshop-2.jpeg" data-caption="Literary Workshop">
+                            <img src="images/GalleryPage/Workshops/literary-workshop-2.jpeg" alt="Literary Workshop">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Participants writing</span>
+                                <span class="gallery-item-caption">Literary Workshop</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
-                        <div class="gallery-item wide" data-src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800" data-caption="Group discussion">
-                            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600" alt="Group discussion">
+                        <div class="gallery-item" data-src="images/GalleryPage/Workshops/literary-workshop-3.jpeg" data-caption="Literary Workshop">
+                            <img src="images/GalleryPage/Workshops/literary-workshop-3.jpeg" alt="Literary Workshop">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Group discussion</span>
+                                <span class="gallery-item-caption">Literary Workshop</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item tall" data-src="images/GalleryPage/Workshops/literary-workshop-4.jpeg" data-caption="Literary Workshop">
+                            <img src="images/GalleryPage/Workshops/literary-workshop-4.jpeg" alt="Literary Workshop">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Literary Workshop</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" data-src="images/GalleryPage/Workshops/literary-workshop-5.jpeg" data-caption="Literary Workshop">
+                            <img src="images/GalleryPage/Workshops/literary-workshop-5.jpeg" alt="Literary Workshop">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Literary Workshop</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" data-src="images/GalleryPage/Workshops/literary-workshop-6.jpeg" data-caption="Literary Workshop">
+                            <img src="images/GalleryPage/Workshops/literary-workshop-6.jpeg" alt="Literary Workshop">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Literary Workshop</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item wide" data-src="images/GalleryPage/Workshops/literary-workshop-7.jpeg" data-caption="Literary Workshop">
+                            <img src="images/GalleryPage/Workshops/literary-workshop-7.jpeg" alt="Literary Workshop">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Literary Workshop</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Event 3: Award Ceremony -->
+                <!-- Award Ceremony -->
                 <div class="event-gallery-section" data-category="awards">
                     <div class="event-gallery-header">
                         <div class="event-gallery-title">
-                            <h2 data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯ ರತ್ನ ಪ್ರಶಸ್ತಿ 2024" data-lang-en="Banjara Sahitya Ratna Award 2024">ಬಂಜಾರ ಸಾಹಿತ್ಯ ರತ್ನ ಪ್ರಶಸ್ತಿ 2024</h2>
-                            <span class="event-date-badge">
-                                <i class="far fa-calendar"></i>
-                                December 10, 2024
-                            </span>
+                            <h2 data-lang-kn="ಪ್ರಶಸ್ತಿ ಪ್ರದಾನ" data-lang-en="Award Ceremony">ಪ್ರಶಸ್ತಿ ಪ್ರದಾನ</h2>
                         </div>
-                        <span class="photo-count">10 photos</span>
+                        <span class="photo-count">11 photos</span>
                     </div>
                     <div class="gallery-grid">
-                        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800" data-caption="Award presentation">
-                            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400" alt="Award presentation">
+                        <div class="gallery-item wide" data-src="images/GalleryPage/AwardCeremony/literary-award-1.jpeg" data-caption="Award Ceremony">
+                            <img src="images/GalleryPage/AwardCeremony/literary-award-1.jpeg" alt="Award Ceremony">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Award presentation</span>
+                                <span class="gallery-item-caption">Award Ceremony</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
-                        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800" data-caption="Felicitation ceremony">
-                            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400" alt="Felicitation ceremony">
+                        <div class="gallery-item" data-src="images/GalleryPage/AwardCeremony/literary-award-2.jpeg" data-caption="Award Ceremony">
+                            <img src="images/GalleryPage/AwardCeremony/literary-award-2.jpeg" alt="Award Ceremony">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Felicitation ceremony</span>
+                                <span class="gallery-item-caption">Award Ceremony</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
-                        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800" data-caption="Award winners">
-                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400" alt="Award winners">
+                        <div class="gallery-item" data-src="images/GalleryPage/AwardCeremony/literary-award-3.jpeg" data-caption="Award Ceremony">
+                            <img src="images/GalleryPage/AwardCeremony/literary-award-3.jpeg" alt="Award Ceremony">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Award winners</span>
+                                <span class="gallery-item-caption">Award Ceremony</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item tall" data-src="images/GalleryPage/AwardCeremony/literary-award-4.jpg" data-caption="Award Ceremony">
+                            <img src="images/GalleryPage/AwardCeremony/literary-award-4.jpg" alt="Award Ceremony">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Award Ceremony</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" data-src="images/GalleryPage/AwardCeremony/literary-award-5.jpg" data-caption="Award Ceremony">
+                            <img src="images/GalleryPage/AwardCeremony/literary-award-5.jpg" alt="Award Ceremony">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Award Ceremony</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" data-src="images/GalleryPage/AwardCeremony/literary-award-6.jpg" data-caption="Award Ceremony">
+                            <img src="images/GalleryPage/AwardCeremony/literary-award-6.jpg" alt="Award Ceremony">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Award Ceremony</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item wide" data-src="images/GalleryPage/AwardCeremony/literary-award-7.jpeg" data-caption="Award Ceremony">
+                            <img src="images/GalleryPage/AwardCeremony/literary-award-7.jpeg" alt="Award Ceremony">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Award Ceremony</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" data-src="images/GalleryPage/AwardCeremony/literary-award-8.jpg" data-caption="Award Ceremony">
+                            <img src="images/GalleryPage/AwardCeremony/literary-award-8.jpg" alt="Award Ceremony">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Award Ceremony</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" data-src="images/GalleryPage/AwardCeremony/literary-award-9.jpg" data-caption="Award Ceremony">
+                            <img src="images/GalleryPage/AwardCeremony/literary-award-9.jpg" alt="Award Ceremony">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Award Ceremony</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" data-src="images/GalleryPage/AwardCeremony/literary-award-10.jpg" data-caption="Award Ceremony">
+                            <img src="images/GalleryPage/AwardCeremony/literary-award-10.jpg" alt="Award Ceremony">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Award Ceremony</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" data-src="images/GalleryPage/AwardCeremony/literary-award-11.jpg" data-caption="Award Ceremony">
+                            <img src="images/GalleryPage/AwardCeremony/literary-award-11.jpg" alt="Award Ceremony">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Award Ceremony</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Event 4: Cultural Program -->
+                <!-- Cultural Events -->
                 <div class="event-gallery-section" data-category="cultural">
                     <div class="event-gallery-header">
                         <div class="event-gallery-title">
-                            <h2 data-lang-kn="ಬಂಜಾರ ಸಾಂಸ್ಕೃತಿಕ ಸಂಜೆ" data-lang-en="Banjara Cultural Evening">ಬಂಜಾರ ಸಾಂಸ್ಕೃತಿಕ ಸಂಜೆ</h2>
-                            <span class="event-date-badge">
-                                <i class="far fa-calendar"></i>
-                                November 5, 2024
-                            </span>
+                            <h2 data-lang-kn="ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Cultural Events">ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮಗಳು</h2>
+                        </div>
+                        <span class="photo-count">7 photos</span>
+                    </div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item wide" data-src="images/GalleryPage/CulturalEvents/cultural-event-1.jpeg" data-caption="Cultural Event">
+                            <img src="images/GalleryPage/CulturalEvents/cultural-event-1.jpeg" alt="Cultural Event">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Cultural Event</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" data-src="images/GalleryPage/CulturalEvents/cultural-event-2.jpeg" data-caption="Cultural Event">
+                            <img src="images/GalleryPage/CulturalEvents/cultural-event-2.jpeg" alt="Cultural Event">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Cultural Event</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" data-src="images/GalleryPage/CulturalEvents/cultural-event-3.jpeg" data-caption="Cultural Event">
+                            <img src="images/GalleryPage/CulturalEvents/cultural-event-3.jpeg" alt="Cultural Event">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Cultural Event</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item tall" data-src="images/GalleryPage/CulturalEvents/cultural-event-4.jpeg" data-caption="Cultural Event">
+                            <img src="images/GalleryPage/CulturalEvents/cultural-event-4.jpeg" alt="Cultural Event">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Cultural Event</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" data-src="images/GalleryPage/CulturalEvents/cultural-event-5.jpeg" data-caption="Cultural Event">
+                            <img src="images/GalleryPage/CulturalEvents/cultural-event-5.jpeg" alt="Cultural Event">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Cultural Event</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" data-src="images/GalleryPage/CulturalEvents/cultural-event-6.jpeg" data-caption="Cultural Event">
+                            <img src="images/GalleryPage/CulturalEvents/cultural-event-6.jpeg" alt="Cultural Event">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Cultural Event</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item wide" data-src="images/GalleryPage/CulturalEvents/cultural-event-7.jpeg" data-caption="Cultural Event">
+                            <img src="images/GalleryPage/CulturalEvents/cultural-event-7.jpeg" alt="Cultural Event">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Cultural Event</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Book Release -->
+                <div class="event-gallery-section" data-category="bookrelease">
+                    <div class="event-gallery-header">
+                        <div class="event-gallery-title">
+                            <h2 data-lang-kn="ಪುಸ್ತಕ ಬಿಡುಗಡೆ" data-lang-en="Book Release">ಪುಸ್ತಕ ಬಿಡುಗಡೆ</h2>
                         </div>
                         <span class="photo-count">6 photos</span>
                     </div>
                     <div class="gallery-grid">
-                        <div class="gallery-item wide" data-src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=800" data-caption="Traditional dance">
-                            <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600" alt="Traditional dance">
+                        <div class="gallery-item wide" data-src="images/GalleryPage/BookRelease/book-launch-image-1.jpeg" data-caption="Book Release">
+                            <img src="images/GalleryPage/BookRelease/book-launch-image-1.jpeg" alt="Book Release">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Traditional dance</span>
+                                <span class="gallery-item-caption">Book Release</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
-                        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800" data-caption="Folk music performance">
-                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400" alt="Folk music">
+                        <div class="gallery-item" data-src="images/GalleryPage/BookRelease/book-launch-image-2.jpeg" data-caption="Book Release">
+                            <img src="images/GalleryPage/BookRelease/book-launch-image-2.jpeg" alt="Book Release">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Folk music performance</span>
+                                <span class="gallery-item-caption">Book Release</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
-                        <div class="gallery-item" data-src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?w=800" data-caption="Audience enjoying">
-                            <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?w=400" alt="Audience">
+                        <div class="gallery-item" data-src="images/GalleryPage/BookRelease/book-launch-image-3.jpeg" data-caption="Book Release">
+                            <img src="images/GalleryPage/BookRelease/book-launch-image-3.jpeg" alt="Book Release">
                             <div class="gallery-item-overlay">
-                                <span class="gallery-item-caption">Audience enjoying</span>
+                                <span class="gallery-item-caption">Book Release</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item tall" data-src="images/GalleryPage/BookRelease/book-launch-image-4.jpeg" data-caption="Book Release">
+                            <img src="images/GalleryPage/BookRelease/book-launch-image-4.jpeg" alt="Book Release">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Book Release</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" data-src="images/GalleryPage/BookRelease/book-launch-image-5.jpeg" data-caption="Book Release">
+                            <img src="images/GalleryPage/BookRelease/book-launch-image-5.jpeg" alt="Book Release">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Book Release</span>
+                            </div>
+                            <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item wide" data-src="images/GalleryPage/BookRelease/book-launch-image-6.jpg" data-caption="Book Release">
+                            <img src="images/GalleryPage/BookRelease/book-launch-image-6.jpg" alt="Book Release">
+                            <div class="gallery-item-overlay">
+                                <span class="gallery-item-caption">Book Release</span>
                             </div>
                             <div class="gallery-item-zoom"><i class="fas fa-expand"></i></div>
                         </div>
@@ -638,8 +893,8 @@
         </section>
         
         <!-- Upload Info Section -->
-        <section class="upload-info">
-            <div class="container">
+        <!-- <section class="upload-info"> -->
+            <!-- <div class="container">
                 <div class="upload-info-content">
                     <h3 data-lang-kn="ಫೋಟೋಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ" data-lang-en="Share Your Photos">ಫೋಟೋಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ</h3>
                     <p data-lang-kn="ನಮ್ಮ ಕಾರ್ಯಕ್ರಮಗಳಿಂದ ನಿಮ್ಮ ಫೋಟೋಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಲು ಬಯಸುವಿರಾ? ದಯವಿಟ್ಟು ನಮಗೆ ಇಮೇಲ್ ಮಾಡಿ." data-lang-en="Want to share your photos from our events? Please email them to us.">
@@ -651,18 +906,19 @@
                     </a>
                 </div>
             </div>
-        </section>
+        </section> -->
         
     </main>
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next"><i class="fas fa-chevron-right"></i></button>
         <div class="lightbox-content">
-            <button class="lightbox-close" id="lightbox-close">&times;</button>
-            <button class="lightbox-nav lightbox-prev" id="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+            <span class="lightbox-counter" id="lightbox-counter">1 / 34</span>
             <img src="" alt="" id="lightbox-image">
             <p class="lightbox-caption" id="lightbox-caption"></p>
-            <button class="lightbox-nav lightbox-next" id="lightbox-next"><i class="fas fa-chevron-right"></i></button>
         </div>
     </div>
 
@@ -718,34 +974,72 @@
             });
         });
         
-        // Lightbox functionality
+        // Enhanced Lightbox functionality
         const lightbox = document.getElementById('lightbox');
         const lightboxImage = document.getElementById('lightbox-image');
         const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxCounter = document.getElementById('lightbox-counter');
         const lightboxClose = document.getElementById('lightbox-close');
         const lightboxPrev = document.getElementById('lightbox-prev');
         const lightboxNext = document.getElementById('lightbox-next');
         const galleryItems = document.querySelectorAll('.gallery-item');
         
         let currentIndex = 0;
-        const images = [];
+        let visibleImages = [];
         
-        // Collect all images
-        galleryItems.forEach((item, index) => {
-            images.push({
-                src: item.dataset.src,
-                caption: item.dataset.caption
-            });
+        // Function to collect visible images (respects current filter)
+        function collectVisibleImages() {
+            visibleImages = [];
+            const visibleSections = document.querySelectorAll('.event-gallery-section[style*="display: block"], .event-gallery-section:not([style*="display: none"])');
             
+            visibleSections.forEach(section => {
+                if (section.style.display !== 'none') {
+                    section.querySelectorAll('.gallery-item').forEach(item => {
+                        if (item.dataset.src) {
+                            visibleImages.push({
+                                src: item.dataset.src,
+                                caption: item.dataset.caption,
+                                element: item
+                            });
+                        }
+                    });
+                }
+            });
+        }
+        
+        // Initialize - collect all images initially
+        collectVisibleImages();
+        
+        // Add click handlers to all gallery items
+        galleryItems.forEach(item => {
             item.addEventListener('click', function() {
-                currentIndex = index;
-                openLightbox(images[currentIndex]);
+                collectVisibleImages();
+                const clickedSrc = this.dataset.src;
+                currentIndex = visibleImages.findIndex(img => img.src === clickedSrc);
+                if (currentIndex === -1) currentIndex = 0;
+                openLightbox();
             });
         });
         
-        function openLightbox(image) {
+        function openLightbox() {
+            if (visibleImages.length === 0) return;
+            
+            const image = visibleImages[currentIndex];
+            
+            // Add loading state
+            lightboxImage.style.opacity = '0.5';
+            
+            // Preload image
+            const img = new Image();
+            img.onload = function() {
+                lightboxImage.src = image.src;
+                lightboxImage.style.opacity = '1';
+            };
+            img.src = image.src;
+            
             lightboxImage.src = image.src;
-            lightboxCaption.textContent = image.caption;
+            lightboxCaption.textContent = image.caption || '';
+            lightboxCounter.textContent = `${currentIndex + 1} / ${visibleImages.length}`;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -756,19 +1050,21 @@
         }
         
         function showPrev() {
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            openLightbox(images[currentIndex]);
+            currentIndex = (currentIndex - 1 + visibleImages.length) % visibleImages.length;
+            openLightbox();
         }
         
         function showNext() {
-            currentIndex = (currentIndex + 1) % images.length;
-            openLightbox(images[currentIndex]);
+            currentIndex = (currentIndex + 1) % visibleImages.length;
+            openLightbox();
         }
         
+        // Event listeners
         lightboxClose.addEventListener('click', closeLightbox);
         lightboxPrev.addEventListener('click', showPrev);
         lightboxNext.addEventListener('click', showNext);
         
+        // Close on background click
         lightbox.addEventListener('click', function(e) {
             if (e.target === lightbox) {
                 closeLightbox();
@@ -782,6 +1078,39 @@
             if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowLeft') showPrev();
             if (e.key === 'ArrowRight') showNext();
+        });
+        
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        lightbox.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        lightbox.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    showNext(); // Swipe left = next
+                } else {
+                    showPrev(); // Swipe right = prev
+                }
+            }
+        }
+        
+        // Update visible images when filter changes
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                setTimeout(collectVisibleImages, 100);
+            });
         });
     </script>
 </body>

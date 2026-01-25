@@ -749,13 +749,13 @@ input, textarea, select {
 .nagada-text {
     display: block;
     text-align: center;
-    font-size: var(--text-sm);
+    font-family: var(--font-kannada);
+    font-size: 1rem;
     font-weight: 600;
     color: var(--color-secondary);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    margin-top: var(--space-sm);
-    letter-spacing: 1px;
-    white-space: nowrap;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: var(--space-md);
+    text-align: center;
     font-style: italic;
 }
 .nagada-text-line2 {
@@ -774,7 +774,7 @@ input, textarea, select {
     }
     
     .nagada-text {
-        font-size: 0.55rem;
+        font-size: 0.65rem;
     }
 }
 
@@ -1061,6 +1061,7 @@ input, textarea, select {
 .about {
     background: var(--color-white);
     margin-top: -87px;
+    scroll-margin-top: 0;
 }
 
 .about-content {

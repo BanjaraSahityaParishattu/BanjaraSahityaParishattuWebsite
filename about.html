@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>ನಮ್ಮ ಬಗ್ಗೆ | About Us - Karnataka Banjara Sahitya Parishattu</title>
+    <meta name="description" content="Learn about Karnataka Banjara Sahitya Parishattu - our history, mission, vision, and commitment to preserving Banjara literary heritage.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- About Page Specific Styles -->
+    <style>
+        .about-page {
+            min-height: 100vh;
+            padding-top: calc(var(--header-height) + var(--top-bar-height));
+            background: var(--color-off-white);
+        }
+        
+        /* About Hero */
+        .about-hero {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+            padding: var(--space-2xl) 0;
+            text-align: center;
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        
+        .about-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-hero-logo {
+            width: 90px;
+            height: auto;
+            border-radius: var(--radius-md);
+            background: var(--color-white);
+            padding: 8px;
+            margin: 0 auto var(--space-md);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .about-hero h1 {
+            font-size: var(--text-2xl);
+            color: var(--color-white);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .about-hero p {
+            font-size: var(--text-base);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Content Sections */
+        .about-section {
+            padding: var(--space-4xl) 0;
+        }
+        
+        .about-section:nth-child(even) {
+            background: var(--color-white);
+        }
+        
+        .about-section-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .about-section-header h2 {
+            font-size: var(--text-3xl);
+            color: var(--color-dark);
+            margin-bottom: var(--space-md);
+        }
+        
+        .about-section-header p {
+            color: var(--color-text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Mission & Vision */
+        .mission-vision-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-2xl);
+        }
+        
+        .mission-card, .vision-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-card::before, .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+        
+        .mission-card::before {
+            background: var(--color-primary);
+        }
+        
+        .vision-card::before {
+            background: var(--color-secondary);
+        }
+        
+        .mission-card h3, .vision-card h3 {
+            font-size: var(--text-xl);
+            margin-bottom: var(--space-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        .mission-card h3 i {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+        }
+        
+        .vision-card h3 i {
+            color: var(--color-secondary);
+            font-size: 1.5rem;
+        }
+        
+        .mission-card p, .vision-card p {
+            color: var(--color-text-muted);
+            line-height: 1.8;
+        }
+        
+        /* History Section */
+        .history-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+            align-items: center;
+        }
+        
+        .history-text h3 {
+            font-size: var(--text-2xl);
+            color: var(--color-dark);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .history-text p {
+            color: var(--color-text-muted);
+            line-height: 1.8;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .history-image {
+            position: relative;
+        }
+        
+        .history-image img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .history-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.3);
+        }
+        
+        .history-badge .year {
+            font-size: var(--text-3xl);
+            font-weight: 700;
+            display: block;
+        }
+        
+        .history-badge .text {
+            font-size: var(--text-xs);
+            opacity: 0.9;
+        }
+        
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-xl);
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: var(--space-2xl);
+            background: var(--color-cream);
+            border-radius: var(--radius-lg);
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            background: var(--color-white);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-lg);
+            color: var(--color-white);
+            font-size: 2rem;
+        }
+        
+        .value-card h4 {
+            font-size: var(--text-lg);
+            color: var(--color-dark);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .value-card p {
+            font-size: var(--text-sm);
+            color: var(--color-text-muted);
+        }
+        
+        /* Activities Section */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+        }
+        
+        .activity-card {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .activity-icon {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            padding: var(--space-xl);
+            color: var(--color-white);
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        
+        .activity-content {
+            padding: var(--space-xl);
+        }
+        
+        .activity-content h4 {
+            font-size: var(--text-lg);
+            color: var(--color-dark);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .activity-content p {
+            font-size: var(--text-sm);
+            color: var(--color-text-muted);
+            line-height: 1.7;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--color-dark) 0%, #2A1A3A 100%);
+            padding: var(--space-4xl) 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-2xl);
+        }
+        
+        .stat-item {
+            text-align: center;
+            color: var(--color-white);
+        }
+        
+        .stat-number {
+            font-size: var(--text-4xl);
+            font-weight: 700;
+            color: var(--color-secondary);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .stat-label {
+            font-size: var(--text-sm);
+            opacity: 0.8;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--color-primary);
+            padding: var(--space-4xl) 0;
+            text-align: center;
+            color: var(--color-white);
+        }
+        
+        .cta-section h2 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-md);
+            color: var(--color-white);
+        }
+        
+        .cta-section p {
+            font-size: var(--text-lg);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto var(--space-xl);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+        }
+        
+        .cta-buttons .btn {
+            padding: var(--space-md) var(--space-2xl);
+        }
+        
+        .btn-white {
+            background: var(--color-white);
+            color: var(--color-primary);
+        }
+        
+        .btn-white:hover {
+            background: var(--color-cream);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline-white {
+            background: transparent;
+            border: 2px solid var(--color-white);
+            color: var(--color-white);
+        }
+        
+        .btn-outline-white:hover {
+            background: var(--color-white);
+            color: var(--color-primary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-xl);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mission-vision-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .history-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .history-image {
+                order: -1;
+            }
+            
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-hero h1 {
+                font-size: var(--text-2xl);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- ==================== HEADER / NAVIGATION ==================== -->
+    <header class="header" id="header">
+        <!-- Top Bar with Contact Info & Social Media -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="contact-info">
+                        <span><i class="fas fa-phone"></i> +91 xxxx xxxx</span>
+                        <span><i class="fas fa-envelope"></i> banjarasahityaparishattu@gmail.com</span>
+                    </div>
+                    <div class="top-bar-right">
+                        <!-- Language Switcher -->
+                        <div class="language-switcher" id="language-switcher">
+                            <button class="lang-btn active" data-lang="kn" aria-label="ಕನ್ನಡ">
+                                <span class="lang-flag">ಕ</span>
+                                <span class="lang-name">ಕನ್ನಡ</span>
+                            </button>
+                            <span class="lang-divider">|</span>
+                            <button class="lang-btn" data-lang="en" aria-label="English">
+                                <span class="lang-flag">A</span>
+                                <span class="lang-name">English</span>
+                            </button>
+                        </div>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Navigation -->
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="logo-image">
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-kannada">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು (ರಿ)</span>
+                            <span class="logo-english">Karnatak Banjara Sahitya Parishattu (R)</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Navigation Menu -->
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
+                        <li><a href="about.html" class="nav-link active" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
+                        <li><a href="index.html#events" class="nav-link" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
+                        <li><a href="index.html#news" class="nav-link" data-lang-kn="ಸುದ್ದಿ" data-lang-en="News">ಸುದ್ದಿ</a></li>
+                        <li><a href="index.html#publications" class="nav-link" data-lang-kn="ಪ್ರಕಟಣೆಗಳು" data-lang-en="Publications">ಪ್ರಕಟಣೆಗಳು</a></li>
+                        <li><a href="gallery.html" class="nav-link" data-lang-kn="ಗ್ಯಾಲರಿ" data-lang-en="Gallery">ಗ್ಯಾಲರಿ</a></li>
+                        <li><a href="index.html#membership" class="nav-link" data-lang-kn="ಸದಸ್ಯತ್ವ" data-lang-en="Membership">ಸದಸ್ಯತ್ವ</a></li>
+                        <li><a href="index.html#contact" class="nav-link" data-lang-kn="ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact">ಸಂಪರ್ಕಿಸಿ</a></li>
+                    </ul>
+                    
+                    <!-- Hamburger Menu Button (Mobile) -->
+                    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="about-page">
+        
+        <!-- About Hero -->
+        <section class="about-hero">
+            <div class="container">
+                <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="about-hero-logo">
+                <h1 data-lang-kn="ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು" data-lang-en="Karnataka Banjara Sahitya Parishattu">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು</h1>
+                <p data-lang-kn="ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು, ಪ್ರಚಾರ ಮಾಡಲು ಮತ್ತು ಆಚರಿಸಲು ಸಮರ್ಪಿತವಾಗಿದೆ" data-lang-en="Dedicated to preserving, promoting, and celebrating the rich literary heritage of the Banjara community">ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು, ಪ್ರಚಾರ ಮಾಡಲು ಮತ್ತು ಆಚರಿಸಲು ಸಮರ್ಪಿತವಾಗಿದೆ</p>
+            </div>
+        </section>
+        
+        <!-- Mission & Vision Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-section-header">
+                    <h2 data-lang-kn="ನಮ್ಮ ಧ್ಯೇಯ ಮತ್ತು ದೃಷ್ಟಿ" data-lang-en="Our Mission & Vision">ನಮ್ಮ ಧ್ಯೇಯ ಮತ್ತು ದೃಷ್ಟಿ</h2>
+                    <p data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಸ್ಕೃತಿಯ ಉತ್ಕೃಷ್ಟತೆಯ ಕಡೆಗೆ ನಮ್ಮ ಮಾರ್ಗದರ್ಶನ" data-lang-en="Guiding our path towards excellence in Banjara literature and culture">ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಸ್ಕೃತಿಯ ಉತ್ಕೃಷ್ಟತೆಯ ಕಡೆಗೆ ನಮ್ಮ ಮಾರ್ಗದರ್ಶನ</p>
+                </div>
+                
+                <div class="mission-vision-grid">
+                    <div class="mission-card">
+                        <h3><i class="fas fa-bullseye"></i> <span data-lang-kn="ನಮ್ಮ ಧ್ಯೇಯ" data-lang-en="Our Mission">ನಮ್ಮ ಧ್ಯೇಯ</span></h3>
+                        <p data-lang-kn="ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸುವುದು, ಪ್ರಚಾರ ಮಾಡುವುದು ಮತ್ತು ಅಭಿವೃದ್ಧಿಪಡಿಸುವುದು. ಮೌಖಿಕ ಸಂಪ್ರದಾಯಗಳು, ಜಾನಪದ ಕಥೆಗಳು, ಕವಿತೆಗಳು ಮತ್ತು ಸಾಹಿತ್ಯಿಕ ಕೃತಿಗಳನ್ನು ದಾಖಲಿಸುವ ಮೂಲಕ ಭವಿಷ್ಯದ ಪೀಳಿಗೆಗೆ ರವಾನಿಸುವುದು. ಹೊಸ ಬರಹಗಾರರನ್ನು ಪ್ರೋತ್ಸಾಹಿಸುವುದು ಮತ್ತು ಬಂಜಾರ ಭಾಷೆ ಹಾಗೂ ಸಂಸ್ಕೃತಿಯ ಬಗ್ಗೆ ಜಾಗೃತಿ ಮೂಡಿಸುವುದು." data-lang-en="To preserve, promote, and develop the rich literary heritage of the Banjara community. By documenting oral traditions, folk tales, poems, and literary works, we aim to pass them on to future generations. We encourage new writers and create awareness about Banjara language and culture.">ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸುವುದು, ಪ್ರಚಾರ ಮಾಡುವುದು ಮತ್ತು ಅಭಿವೃದ್ಧಿಪಡಿಸುವುದು. ಮೌಖಿಕ ಸಂಪ್ರದಾಯಗಳು, ಜಾನಪದ ಕಥೆಗಳು, ಕವಿತೆಗಳು ಮತ್ತು ಸಾಹಿತ್ಯಿಕ ಕೃತಿಗಳನ್ನು ದಾಖಲಿಸುವ ಮೂಲಕ ಭವಿಷ್ಯದ ಪೀಳಿಗೆಗೆ ರವಾನಿಸುವುದು. ಹೊಸ ಬರಹಗಾರರನ್ನು ಪ್ರೋತ್ಸಾಹಿಸುವುದು ಮತ್ತು ಬಂಜಾರ ಭಾಷೆ ಹಾಗೂ ಸಂಸ್ಕೃತಿಯ ಬಗ್ಗೆ ಜಾಗೃತಿ ಮೂಡಿಸುವುದು.</p>
+                    </div>
+                    
+                    <div class="vision-card">
+                        <h3><i class="fas fa-eye"></i> <span data-lang-kn="ನಮ್ಮ ದೃಷ್ಟಿ" data-lang-en="Our Vision">ನಮ್ಮ ದೃಷ್ಟಿ</span></h3>
+                        <p data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯವನ್ನು ರಾಷ್ಟ್ರೀಯ ಮತ್ತು ಅಂತರರಾಷ್ಟ್ರೀಯ ಮಟ್ಟದಲ್ಲಿ ಗುರುತಿಸಲ್ಪಡುವ ಸಮೃದ್ಧ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯಾಗಿ ಸ್ಥಾಪಿಸುವುದು. ಪ್ರತಿಯೊಬ್ಬ ಬಂಜಾರ ವ್ಯಕ್ತಿಯೂ ತಮ್ಮ ಸಾಂಸ್ಕೃತಿಕ ಬೇರುಗಳ ಬಗ್ಗೆ ಹೆಮ್ಮೆ ಪಡುವ, ಮತ್ತು ನಮ್ಮ ಸಾಹಿತ್ಯ ಜಾಗತಿಕ ಸಾಹಿತ್ಯ ಸಮುದಾಯದಲ್ಲಿ ತನ್ನ ನ್ಯಾಯಯುತ ಸ್ಥಾನವನ್ನು ಪಡೆಯುವ ಭವಿಷ್ಯವನ್ನು ನಾವು ಕಲ್ಪಿಸುತ್ತೇವೆ." data-lang-en="To establish Banjara literature as a rich literary tradition recognized at national and international levels. We envision a future where every Banjara individual takes pride in their cultural roots, and our literature gains its rightful place in the global literary community.">ಬಂಜಾರ ಸಾಹಿತ್ಯವನ್ನು ರಾಷ್ಟ್ರೀಯ ಮತ್ತು ಅಂತರರಾಷ್ಟ್ರೀಯ ಮಟ್ಟದಲ್ಲಿ ಗುರುತಿಸಲ್ಪಡುವ ಸಮೃದ್ಧ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯಾಗಿ ಸ್ಥಾಪಿಸುವುದು. ಪ್ರತಿಯೊಬ್ಬ ಬಂಜಾರ ವ್ಯಕ್ತಿಯೂ ತಮ್ಮ ಸಾಂಸ್ಕೃತಿಕ ಬೇರುಗಳ ಬಗ್ಗೆ ಹೆಮ್ಮೆ ಪಡುವ, ಮತ್ತು ನಮ್ಮ ಸಾಹಿತ್ಯ ಜಾಗತಿಕ ಸಾಹಿತ್ಯ ಸಮುದಾಯದಲ್ಲಿ ತನ್ನ ನ್ಯಾಯಯುತ ಸ್ಥಾನವನ್ನು ಪಡೆಯುವ ಭವಿಷ್ಯವನ್ನು ನಾವು ಕಲ್ಪಿಸುತ್ತೇವೆ.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- History Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="history-content">
+                    <div class="history-text">
+                        <h3 data-lang-kn="ನಮ್ಮ ಇತಿಹಾಸ" data-lang-en="Our History">ನಮ್ಮ ಇತಿಹಾಸ</h3>
+                        <p data-lang-kn="ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು 2024 ರಲ್ಲಿ ಬಂಜಾರ ಸಮುದಾಯದ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಪರಂಪರೆಯನ್ನು ಉಳಿಸಲು ಮತ್ತು ಬೆಳೆಸಲು ಸಮರ್ಪಿತ ವ್ಯಕ್ತಿಗಳ ಗುಂಪಿನಿಂದ ಸ್ಥಾಪಿಸಲ್ಪಟ್ಟಿತು." data-lang-en="Karnataka Banjara Sahitya Parishattu was established in 2024 by a group of dedicated individuals committed to preserving and nurturing the literary and cultural heritage of the Banjara community.">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು 2024 ರಲ್ಲಿ ಬಂಜಾರ ಸಮುದಾಯದ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಪರಂಪರೆಯನ್ನು ಉಳಿಸಲು ಮತ್ತು ಬೆಳೆಸಲು ಸಮರ್ಪಿತ ವ್ಯಕ್ತಿಗಳ ಗುಂಪಿನಿಂದ ಸ್ಥಾಪಿಸಲ್ಪಟ್ಟಿತು.</p>
+                        <p data-lang-kn="ಬಂಜಾರ ಸಮುದಾಯವು ಭಾರತದ ಅತ್ಯಂತ ಹಳೆಯ ಅಲೆಮಾರಿ ಬುಡಕಟ್ಟುಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ, ಇದು ಸಮೃದ್ಧ ಮೌಖಿಕ ಸಂಪ್ರದಾಯಗಳು, ಜಾನಪದ ಹಾಡುಗಳು, ಕಥೆಗಳು ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಆಚರಣೆಗಳನ್ನು ಹೊಂದಿದೆ. ನಮ್ಮ ಸಂಸ್ಥೆಯು ಈ ಅಮೂಲ್ಯ ಪರಂಪರೆಯನ್ನು ದಾಖಲಿಸಲು, ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಮುಂದಿನ ಪೀಳಿಗೆಗೆ ರವಾನಿಸಲು ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ." data-lang-en="The Banjara community is one of the oldest nomadic tribes in India, possessing rich oral traditions, folk songs, stories, and cultural practices. Our organization works to document, preserve, and pass on this invaluable heritage to future generations.">ಬಂಜಾರ ಸಮುದಾಯವು ಭಾರತದ ಅತ್ಯಂತ ಹಳೆಯ ಅಲೆಮಾರಿ ಬುಡಕಟ್ಟುಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ, ಇದು ಸಮೃದ್ಧ ಮೌಖಿಕ ಸಂಪ್ರದಾಯಗಳು, ಜಾನಪದ ಹಾಡುಗಳು, ಕಥೆಗಳು ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಆಚರಣೆಗಳನ್ನು ಹೊಂದಿದೆ. ನಮ್ಮ ಸಂಸ್ಥೆಯು ಈ ಅಮೂಲ್ಯ ಪರಂಪರೆಯನ್ನು ದಾಖಲಿಸಲು, ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಮುಂದಿನ ಪೀಳಿಗೆಗೆ ರವಾನಿಸಲು ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ.</p>
+                        <p data-lang-kn="ಸಂತ ಶ್ರೀ ಸೇವಾಲಾಲ್ ಮಹಾರಾಜ್ ಅವರ ಆಶೀರ್ವಾದದೊಂದಿಗೆ, ನಾವು ಬಂಜಾರ ಸಮುದಾಯದ ಸಾಹಿತ್ಯಿಕ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಉನ್ನತಿಗೆ ಕೆಲಸ ಮಾಡುತ್ತಿದ್ದೇವೆ." data-lang-en="With the blessings of Sant Shree Sevalal Maharaj, we are working towards the literary and cultural upliftment of the Banjara community.">ಸಂತ ಶ್ರೀ ಸೇವಾಲಾಲ್ ಮಹಾರಾಜ್ ಅವರ ಆಶೀರ್ವಾದದೊಂದಿಗೆ, ನಾವು ಬಂಜಾರ ಸಮುದಾಯದ ಸಾಹಿತ್ಯಿಕ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಉನ್ನತಿಗೆ ಕೆಲಸ ಮಾಡುತ್ತಿದ್ದೇವೆ.</p>
+                    </div>
+                    <div class="history-image">
+                        <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu">
+                        <div class="history-badge">
+                            <span class="year">2024</span>
+                            <span class="text" data-lang-kn="ಸ್ಥಾಪನೆ" data-lang-en="Established">ಸ್ಥಾಪನೆ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Values Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-section-header">
+                    <h2 data-lang-kn="ನಮ್ಮ ಮೌಲ್ಯಗಳು" data-lang-en="Our Values">ನಮ್ಮ ಮೌಲ್ಯಗಳು</h2>
+                    <p data-lang-kn="ನಮ್ಮ ಕಾರ್ಯವನ್ನು ಮಾರ್ಗದರ್ಶಿಸುವ ಮೂಲ ತತ್ವಗಳು" data-lang-en="The core principles that guide our work">ನಮ್ಮ ಕಾರ್ಯವನ್ನು ಮಾರ್ಗದರ್ಶಿಸುವ ಮೂಲ ತತ್ವಗಳು</p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-heart"></i></div>
+                        <h4 data-lang-kn="ಸಮರ್ಪಣೆ" data-lang-en="Dedication">ಸಮರ್ಪಣೆ</h4>
+                        <p data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯದ ಸಂರಕ್ಷಣೆ ಮತ್ತು ಪ್ರಚಾರಕ್ಕೆ ಸಂಪೂರ್ಣ ಬದ್ಧತೆ" data-lang-en="Complete commitment to preservation and promotion of Banjara literature">ಬಂಜಾರ ಸಾಹಿತ್ಯದ ಸಂರಕ್ಷಣೆ ಮತ್ತು ಪ್ರಚಾರಕ್ಕೆ ಸಂಪೂರ್ಣ ಬದ್ಧತೆ</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-hands-helping"></i></div>
+                        <h4 data-lang-kn="ಸಮುದಾಯ" data-lang-en="Community">ಸಮುದಾಯ</h4>
+                        <p data-lang-kn="ಎಲ್ಲಾ ಬಂಜಾರ ಜನರನ್ನು ಒಗ್ಗೂಡಿಸುವ ಮತ್ತು ಸಂಪರ್ಕಿಸುವ ಉದ್ದೇಶ" data-lang-en="Bringing together and connecting all Banjara people">ಎಲ್ಲಾ ಬಂಜಾರ ಜನರನ್ನು ಒಗ್ಗೂಡಿಸುವ ಮತ್ತು ಸಂಪರ್ಕಿಸುವ ಉದ್ದೇಶ</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h4 data-lang-kn="ನಾವೀನ್ಯತೆ" data-lang-en="Innovation">ನಾವೀನ್ಯತೆ</h4>
+                        <p data-lang-kn="ಸಾಹಿತ್ಯವನ್ನು ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಹರಡಲು ಆಧುನಿಕ ವಿಧಾನಗಳನ್ನು ಅಳವಡಿಸಿಕೊಳ್ಳುವುದು" data-lang-en="Adopting modern methods to preserve and spread literature">ಸಾಹಿತ್ಯವನ್ನು ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಹರಡಲು ಆಧುನಿಕ ವಿಧಾನಗಳನ್ನು ಅಳವಡಿಸಿಕೊಳ್ಳುವುದು</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fas fa-trophy"></i></div>
+                        <h4 data-lang-kn="ಶ್ರೇಷ್ಠತೆ" data-lang-en="Excellence">ಶ್ರೇಷ್ಠತೆ</h4>
+                        <p data-lang-kn="ಎಲ್ಲಾ ಸಾಹಿತ್ಯಿಕ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಪ್ರಯತ್ನಗಳಲ್ಲಿ ಅತ್ಯುತ್ತಮತೆಯ ಅನ್ವೇಷಣೆ" data-lang-en="Pursuit of the highest quality in all literary and cultural endeavors">ಎಲ್ಲಾ ಸಾಹಿತ್ಯಿಕ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಪ್ರಯತ್ನಗಳಲ್ಲಿ ಅತ್ಯುತ್ತಮತೆಯ ಅನ್ವೇಷಣೆ</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Activities Section -->
+        <section class="about-section">
+            <div class="container">
+                <div class="about-section-header">
+                    <h2 data-lang-kn="ನಮ್ಮ ಚಟುವಟಿಕೆಗಳು" data-lang-en="Our Activities">ನಮ್ಮ ಚಟುವಟಿಕೆಗಳು</h2>
+                    <p data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಸ್ಕೃತಿಯನ್ನು ಉತ್ತೇಜಿಸಲು ನಾವು ಏನು ಮಾಡುತ್ತೇವೆ" data-lang-en="What we do to promote Banjara literature and culture">ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಸ್ಕೃತಿಯನ್ನು ಉತ್ತೇಜಿಸಲು ನಾವು ಏನು ಮಾಡುತ್ತೇವೆ</p>
+                </div>
+                
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="activity-content">
+                            <h4 data-lang-kn="ಸಾಹಿತ್ಯ ಸಮ್ಮೇಳನ" data-lang-en="Literary Conference">ಸಾಹಿತ್ಯ ಸಮ್ಮೇಳನ</h4>
+                            <p data-lang-kn="ಲೇಖಕರು, ಕವಿಗಳು ಮತ್ತು ಸಾಹಿತ್ಯ ಪ್ರೇಮಿಗಳನ್ನು ಒಟ್ಟುಗೂಡಿಸುವ ವಾರ್ಷಿಕ ಸಮ್ಮೇಳನಗಳು" data-lang-en="Annual conferences bringing together writers, poets, and literature enthusiasts">ಲೇಖಕರು, ಕವಿಗಳು ಮತ್ತು ಸಾಹಿತ್ಯ ಪ್ರೇಮಿಗಳನ್ನು ಒಟ್ಟುಗೂಡಿಸುವ ವಾರ್ಷಿಕ ಸಮ್ಮೇಳನಗಳು</p>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon"><i class="fas fa-book"></i></div>
+                        <div class="activity-content">
+                            <h4 data-lang-kn="ಪುಸ್ತಕ ಪ್ರಕಟಣೆ" data-lang-en="Book Publication">ಪುಸ್ತಕ ಪ್ರಕಟಣೆ</h4>
+                            <p data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯ, ಕವಿತೆ ಮತ್ತು ಸಂಶೋಧನಾ ಕೃತಿಗಳ ಪ್ರಕಟಣೆ" data-lang-en="Publishing Banjara literature, poetry, and research works">ಬಂಜಾರ ಸಾಹಿತ್ಯ, ಕವಿತೆ ಮತ್ತು ಸಂಶೋಧನಾ ಕೃತಿಗಳ ಪ್ರಕಟಣೆ</p>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="activity-content">
+                            <h4 data-lang-kn="ಕಾರ್ಯಾಗಾರಗಳು" data-lang-en="Workshops">ಕಾರ್ಯಾಗಾರಗಳು</h4>
+                            <p data-lang-kn="ಬರವಣಿಗೆ, ಕವಿತೆ ಮತ್ತು ಸಾಹಿತ್ಯ ವಿಮರ್ಶೆಯ ಕಾರ್ಯಾಗಾರಗಳು" data-lang-en="Workshops on writing, poetry, and literary criticism">ಬರವಣಿಗೆ, ಕವಿತೆ ಮತ್ತು ಸಾಹಿತ್ಯ ವಿಮರ್ಶೆಯ ಕಾರ್ಯಾಗಾರಗಳು</p>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon"><i class="fas fa-award"></i></div>
+                        <div class="activity-content">
+                            <h4 data-lang-kn="ಪ್ರಶಸ್ತಿ ಪ್ರದಾನ" data-lang-en="Award Ceremony">ಪ್ರಶಸ್ತಿ ಪ್ರದಾನ</h4>
+                            <p data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯಕ್ಕೆ ಕೊಡುಗೆ ನೀಡಿದ ಲೇಖಕರನ್ನು ಗೌರವಿಸುವುದು" data-lang-en="Honoring writers who have contributed to Banjara literature">ಬಂಜಾರ ಸಾಹಿತ್ಯಕ್ಕೆ ಕೊಡುಗೆ ನೀಡಿದ ಲೇಖಕರನ್ನು ಗೌರವಿಸುವುದು</p>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon"><i class="fas fa-music"></i></div>
+                        <div class="activity-content">
+                            <h4 data-lang-kn="ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮ" data-lang-en="Cultural Programs">ಸಾಂಸ್ಕೃತಿಕ ಕಾರ್ಯಕ್ರಮ</h4>
+                            <p data-lang-kn="ಜಾನಪದ ಸಂಗೀತ, ನೃತ್ಯ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಪ್ರದರ್ಶನಗಳು" data-lang-en="Folk music, dance, and cultural performances">ಜಾನಪದ ಸಂಗೀತ, ನೃತ್ಯ ಮತ್ತು ಸಾಂಸ್ಕೃತಿಕ ಪ್ರದರ್ಶನಗಳು</p>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-icon"><i class="fas fa-archive"></i></div>
+                        <div class="activity-content">
+                            <h4 data-lang-kn="ಡಿಜಿಟಲ್ ಆರ್ಕೈವ್" data-lang-en="Digital Archive">ಡಿಜಿಟಲ್ ಆರ್ಕೈವ್</h4>
+                            <p data-lang-kn="ಮೌಖಿಕ ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು ಸಾಹಿತ್ಯವನ್ನು ಡಿಜಿಟಲ್ ಸ್ವರೂಪದಲ್ಲಿ ಸಂರಕ್ಷಿಸುವುದು" data-lang-en="Preserving oral traditions and literature in digital format">ಮೌಖಿಕ ಸಂಪ್ರದಾಯಗಳು ಮತ್ತು ಸಾಹಿತ್ಯವನ್ನು ಡಿಜಿಟಲ್ ಸ್ವರೂಪದಲ್ಲಿ ಸಂರಕ್ಷಿಸುವುದು</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label" data-lang-kn="ಸದಸ್ಯರು" data-lang-en="Members">ಸದಸ್ಯರು</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events Organized">ಕಾರ್ಯಕ್ರಮಗಳು</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label" data-lang-kn="ಪುಸ್ತಕಗಳು ಪ್ರಕಟಿತ" data-lang-en="Books Published">ಪುಸ್ತಕಗಳು ಪ್ರಕಟಿತ</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label" data-lang-kn="ವರ್ಷಗಳ ಸೇವೆ" data-lang-en="Years of Service">ವರ್ಷಗಳ ಸೇವೆ</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-lang-kn="ನಮ್ಮೊಂದಿಗೆ ಸೇರಿ" data-lang-en="Join Us">ನಮ್ಮೊಂದಿಗೆ ಸೇರಿ</h2>
+                <p data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಸ್ಕೃತಿಯ ಸಂರಕ್ಷಣೆ ಮತ್ತು ಪ್ರಚಾರದಲ್ಲಿ ನಮ್ಮೊಂದಿಗೆ ಕೈಜೋಡಿಸಿ" data-lang-en="Join hands with us in preserving and promoting Banjara literature and culture">ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಸ್ಕೃತಿಯ ಸಂರಕ್ಷಣೆ ಮತ್ತು ಪ್ರಚಾರದಲ್ಲಿ ನಮ್ಮೊಂದಿಗೆ ಕೈಜೋಡಿಸಿ</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn btn-white">
+                        <span data-lang-kn="ಸದಸ್ಯರಾಗಿ" data-lang-en="Become a Member">ಸದಸ್ಯರಾಗಿ</span>
+                    </a>
+                    <a href="index.html#contact" class="btn btn-outline-white">
+                        <span data-lang-kn="ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact Us">ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <div class="logo-icon">
+                            <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="footer-logo-img">
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-kannada">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು</span>
+                            <span class="logo-english">Karnataka Banjara Sahitya Parishattu</span>
+                        </div>
+                    </a>
+                    <p class="footer-description" data-lang-kn="ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಪ್ರಚಾರ ಮಾಡಲು ಸಮರ್ಪಿತವಾಗಿದೆ." data-lang-en="Dedicated to preserving and promoting the rich literary heritage of the Banjara community.">
+                        ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಪ್ರಚಾರ ಮಾಡಲು ಸಮರ್ಪಿತವಾಗಿದೆ.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 data-lang-kn="ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು" data-lang-en="Quick Links">ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು</h4>
+                        <ul>
+                            <li><a href="index.html" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
+                            <li><a href="about.html" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
+                            <li><a href="index.html#events" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
+                            <li><a href="gallery.html" data-lang-kn="ಗ್ಯಾಲರಿ" data-lang-en="Gallery">ಗ್ಯಾಲರಿ</a></li>
+                            <li><a href="index.html#contact" data-lang-kn="ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact">ಸಂಪರ್ಕಿಸಿ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 data-lang-kn="ಸಂಪರ್ಕ ಮಾಹಿತಿ" data-lang-en="Contact Info">ಸಂಪರ್ಕ ಮಾಹಿತಿ</h4>
+                        <ul class="footer-contact">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯ ಭವನ<br>ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ" data-lang-en="Banjara Sahitya Bhavan<br>Bengaluru, Karnataka">ಬಂಜಾರ ಸಾಹಿತ್ಯ ಭವನ<br>ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>+91 xxxxxxxxxx</span>
+                            </li>
+                            <li style="align-items: center;">
+                                <i class="fas fa-envelope"></i>
+                                <span>banjarasahityaparishattu@gmail.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright" data-lang-kn="© 2026 ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ." data-lang-en="© 2026 Karnataka Banjara Sahitya Parishattu. All Rights Reserved.">
+                        © 2026 ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.
+                    </p>
+                    <ul class="footer-legal">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Main JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
