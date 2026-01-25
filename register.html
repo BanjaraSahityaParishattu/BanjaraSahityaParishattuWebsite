@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=5">
     
     <!-- Registration Page Specific Styles -->
     <style>
@@ -53,6 +53,30 @@
             color: var(--color-text-light);
             max-width: 600px;
             margin: 0 auto;
+        }
+        
+        .membership-benefits-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-3xl);
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            border-radius: var(--radius-lg);
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--color-white);
+            font-weight: 500;
+        }
+        
+        .benefit-item i {
+            color: var(--color-secondary);
+            font-size: 1.2rem;
         }
         
         .registration-card {
@@ -339,7 +363,7 @@
                     <!-- Logo -->
                     <a href="index.html" class="logo">
                         <div class="logo-icon">
-                            <img src="images/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="logo-image">
+                            <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="logo-image">
                         </div>
                         <div class="logo-text">
                             <span class="logo-kannada">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು</span>
@@ -350,10 +374,13 @@
                     <!-- Navigation Menu -->
                     <ul class="nav-menu" id="nav-menu">
                         <li><a href="index.html" class="nav-link" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
-                        <li><a href="index.html#about" class="nav-link" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
-                        <li><a href="index.html#events" class="nav-link" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
-                        <li><a href="index.html#news" class="nav-link" data-lang-kn="ಸುದ್ದಿ" data-lang-en="News">ಸುದ್ದಿ</a></li>
-                        <li><a href="index.html#contact" class="nav-link" data-lang-kn="ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact">ಸಂಪರ್ಕಿಸಿ</a></li>
+                        <li><a href="about.html" class="nav-link" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
+                        <li><a href="events.html" class="nav-link" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
+                        <li><a href="news.html" class="nav-link" data-lang-kn="ಸುದ್ದಿ" data-lang-en="News">ಸುದ್ದಿ</a></li>
+                        <li><a href="publications.html" class="nav-link" data-lang-kn="ಪ್ರಕಟಣೆಗಳು" data-lang-en="Publications">ಪ್ರಕಟಣೆಗಳು</a></li>
+                        <li><a href="gallery.html" class="nav-link" data-lang-kn="ಗ್ಯಾಲರಿ" data-lang-en="Gallery">ಗ್ಯಾಲರಿ</a></li>
+                        <li><a href="register.html" class="nav-link active" data-lang-kn="ಸದಸ್ಯತ್ವ" data-lang-en="Membership">ಸದಸ್ಯತ್ವ</a></li>
+                        <li><a href="contact.html" class="nav-link" data-lang-kn="ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact">ಸಂಪರ್ಕಿಸಿ</a></li>
                     </ul>
                     
                     <!-- Hamburger Menu -->
@@ -373,10 +400,30 @@
             
             <!-- Page Header -->
             <div class="registration-header">
-                <h1 data-lang-kn="ಸದಸ್ಯತ್ವ ನೋಂದಣಿ" data-lang-en="Membership Registration">ಸದಸ್ಯತ್ವ ನೋಂದಣಿ</h1>
-                <p data-lang-kn="ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತಿನ ಸದಸ್ಯರಾಗಿ ನೋಂದಾಯಿಸಿ ಮತ್ತು ನಮ್ಮ ಸಾಹಿತ್ಯಿಕ ಸಮುದಾಯದ ಭಾಗವಾಗಿ" data-lang-en="Register as a member of Karnataka Banjara Sahitya Parishattu and become part of our literary community">
-                    ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತಿನ ಸದಸ್ಯರಾಗಿ ನೋಂದಾಯಿಸಿ ಮತ್ತು ನಮ್ಮ ಸಾಹಿತ್ಯಿಕ ಸಮುದಾಯದ ಭಾಗವಾಗಿ
+                <h1 data-lang-kn="ಇಂದೇ ಸದಸ್ಯರಾಗಿ" data-lang-en="Become a Member Today">ಇಂದೇ ಸದಸ್ಯರಾಗಿ</h1>
+                <p data-lang-kn="ಲೇಖಕರು, ವಿದ್ವಾಂಸರು ಮತ್ತು ಸಾಹಿತ್ಯ ಉತ್ಸಾಹಿಗಳ ನಮ್ಮ ಸಮುದಾಯವನ್ನು ಸೇರಿ. ಕಾರ್ಯಕ್ರಮಗಳು, ಪ್ರಕಟಣೆಗಳು ಮತ್ತು ನೆಟ್‌ವರ್ಕಿಂಗ್ ಅವಕಾಶಗಳಿಗೆ ವಿಶೇಷ ಪ್ರವೇಶ ಪಡೆಯಿರಿ." data-lang-en="Join our community of writers, scholars, and literature enthusiasts. Get exclusive access to events, publications, and networking opportunities.">
+                    ಲೇಖಕರು, ವಿದ್ವಾಂಸರು ಮತ್ತು ಸಾಹಿತ್ಯ ಉತ್ಸಾಹಿಗಳ ನಮ್ಮ ಸಮುದಾಯವನ್ನು ಸೇರಿ. ಕಾರ್ಯಕ್ರಮಗಳು, ಪ್ರಕಟಣೆಗಳು ಮತ್ತು ನೆಟ್‌ವರ್ಕಿಂಗ್ ಅವಕಾಶಗಳಿಗೆ ವಿಶೇಷ ಪ್ರವೇಶ ಪಡೆಯಿರಿ.
                 </p>
+            </div>
+            
+            <!-- Membership Benefits -->
+            <div class="membership-benefits-section">
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span data-lang-kn="ಎಲ್ಲಾ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ಉಚಿತ ಪ್ರವೇಶ" data-lang-en="Free entry to all events">ಎಲ್ಲಾ ಕಾರ್ಯಕ್ರಮಗಳಿಗೆ ಉಚಿತ ಪ್ರವೇಶ</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span data-lang-kn="ತ್ರೈಮಾಸಿಕ ಸುದ್ದಿಪತ್ರ" data-lang-en="Quarterly newsletter">ತ್ರೈಮಾಸಿಕ ಸುದ್ದಿಪತ್ರ</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span data-lang-kn="ಪ್ರಕಟಣೆಗಳ ಮೇಲೆ ರಿಯಾಯಿತಿ" data-lang-en="Discounts on publications">ಪ್ರಕಟಣೆಗಳ ಮೇಲೆ ರಿಯಾಯಿತಿ</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span data-lang-kn="ಡಿಜಿಟಲ್ ಆರ್ಕೈವ್‌ಗೆ ಪ್ರವೇಶ" data-lang-en="Access to digital archive">ಡಿಜಿಟಲ್ ಆರ್ಕೈವ್‌ಗೆ ಪ್ರವೇಶ</span>
+                </div>
             </div>
             
             <!-- Registration Card -->
@@ -621,18 +668,98 @@
     </main>
 
     <!-- ==================== FOOTER ==================== -->
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="footer-pattern"></div>
         <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <div class="logo-icon">
+                                <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="footer-logo-img">
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-kannada">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು</span>
+                                <span class="logo-english">Karnataka Banjara Sahitya Parishattu</span>
+                            </div>
+                        </a>
+                        <p class="footer-description" data-lang-kn="ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಪ್ರಚಾರ ಮಾಡಲು ಸಮರ್ಪಿತವಾಗಿದೆ." data-lang-en="Dedicated to preserving and promoting the rich literary heritage of the Banjara community.">
+                            ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಪ್ರಚಾರ ಮಾಡಲು ಸಮರ್ಪಿತವಾಗಿದೆ.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4 data-lang-kn="ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು" data-lang-en="Quick Links">ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು</h4>
+                            <ul>
+                                <li><a href="index.html" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
+                                <li><a href="about.html" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
+                                <li><a href="events.html" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
+                                <li><a href="news.html" data-lang-kn="ಸುದ್ದಿ" data-lang-en="News">ಸುದ್ದಿ</a></li>
+                                <li><a href="publications.html" data-lang-kn="ಪ್ರಕಟಣೆಗಳು" data-lang-en="Publications">ಪ್ರಕಟಣೆಗಳು</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 data-lang-kn="ಸಂಪನ್ಮೂಲಗಳು" data-lang-en="Resources">ಸಂಪನ್ಮೂಲಗಳು</h4>
+                            <ul>
+                                <li><a href="#" data-lang-kn="ಡಿಜಿಟಲ್ ಆರ್ಕೈವ್" data-lang-en="Digital Archive">ಡಿಜಿಟಲ್ ಆರ್ಕೈವ್</a></li>
+                                <li><a href="#" data-lang-kn="ಸಂಶೋಧನಾ ಪತ್ರಿಕೆಗಳು" data-lang-en="Research Papers">ಸಂಶೋಧನಾ ಪತ್ರಿಕೆಗಳು</a></li>
+                                <li><a href="#" data-lang-kn="ಹಸ್ತಪ್ರತಿಗಳು" data-lang-en="Manuscripts">ಹಸ್ತಪ್ರತಿಗಳು</a></li>
+                                <li><a href="#" data-lang-kn="ಆಡಿಯೋ ಗ್ರಂಥಾಲಯ" data-lang-en="Audio Library">ಆಡಿಯೋ ಗ್ರಂಥಾಲಯ</a></li>
+                                <li><a href="#" data-lang-kn="ವೀಡಿಯೋ ಗ್ಯಾಲರಿ" data-lang-en="Video Gallery">ವೀಡಿಯೋ ಗ್ಯಾಲರಿ</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 data-lang-kn="ಭಾಗವಹಿಸಿ" data-lang-en="Get Involved">ಭಾಗವಹಿಸಿ</h4>
+                            <ul>
+                                <li><a href="register.html" data-lang-kn="ಸದಸ್ಯತ್ವ" data-lang-en="Membership">ಸದಸ್ಯತ್ವ</a></li>
+                                <li><a href="#" data-lang-kn="ಸ್ವಯಂಸೇವಕ" data-lang-en="Volunteer">ಸ್ವಯಂಸೇವಕ</a></li>
+                                <li><a href="#" data-lang-kn="ದೇಣಿಗೆ ನೀಡಿ" data-lang-en="Donate">ದೇಣಿಗೆ ನೀಡಿ</a></li>
+                                <li><a href="#" data-lang-kn="ಬರಹ ಸಲ್ಲಿಸಿ" data-lang-en="Submit Writing">ಬರಹ ಸಲ್ಲಿಸಿ</a></li>
+                                <li><a href="#" data-lang-kn="ನಮ್ಮೊಂದಿಗೆ ಪಾಲುದಾರರಾಗಿ" data-lang-en="Partner With Us">ನಮ್ಮೊಂದಿಗೆ ಪಾಲುದಾರರಾಗಿ</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 data-lang-kn="ಸಂಪರ್ಕ ಮಾಹಿತಿ" data-lang-en="Contact Info">ಸಂಪರ್ಕ ಮಾಹಿತಿ</h4>
+                            <ul class="footer-contact">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span data-lang-kn="256, ಬಂಜಾರ ಕಾಲೋನಿ<br>ಗೋಕುಲ ರಸ್ತೆ, ಹುಬ್ಬಳ್ಳಿ - 580027<br>ಕರ್ನಾಟಕ" data-lang-en="256, Banjara Colony<br>Gokula Road, Hubballi - 590027<br>Karnataka">ಬಂಜಾರ ಸಾಹಿತ್ಯ ಭವನ<br>ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone"></i>
+                                    <span>+91 xxxxxxxxxx</span>
+                                </li>
+                                <li style="align-items: center;">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>banjarasahityaparishattu@gmail.com</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <p class="copyright">
-                        © 2026 Karnataka Banjara Sahitya Parishattu. All Rights Reserved.
+                    <p class="copyright" data-lang-kn="© 2026 ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ." data-lang-en="© 2026 Karnataka Banjara Sahitya Parishattu. All Rights Reserved.">
+                        © 2026 ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.
                     </p>
                     <ul class="footer-legal">
-                        <li><a href="index.html">Home</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Sitemap</a></li>
                     </ul>
                 </div>
             </div>

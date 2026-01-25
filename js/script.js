@@ -255,7 +255,14 @@ function initSmoothScroll() {
                 e.preventDefault();
                 
                 const headerHeight = document.getElementById('header').offsetHeight;
-                const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+                
+                // Apply extra offset to section links (except Home and Contact)
+                let extraOffset = 0;
+                if (href !== '#contact' && href !== '#home') {
+                    extraOffset = 48; // Half inch = ~48px, scroll higher
+                }
+                
+                const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight + extraOffset;
                 
                 window.scrollTo({
                     top: targetPosition,
@@ -326,19 +333,17 @@ function initDropdowns() {
  */
 function initContactForm() {
     const form = document.getElementById('contact-form');
-    
     if (!form) return;
     
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form values
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const subject = document.getElementById('subject').value.trim();
         const message = document.getElementById('message').value.trim();
         
-        // Basic validation
+        // Validation
         if (!name || !email || !subject || !message) {
             showNotification('Please fill in all required fields.', 'error');
             return;
@@ -349,20 +354,45 @@ function initContactForm() {
             return;
         }
         
-        // Simulate form submission (replace with actual backend call)
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
-        
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
         
-        // Simulate API call delay
-        setTimeout(function() {
-            showNotification('Thank you! Your message has been sent successfully.', 'success');
-            form.reset();
+        // Create form data
+        const formData = new FormData(form);
+        
+        // Submit to Formspree
+        fetch('https://formspree.io/f/mykeqwlv', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(function(response) {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-        }, 1500);
+            
+            if (response.ok) {
+                showNotification('Thank you! Your message has been sent successfully.', 'success');
+                form.reset();
+            } else {
+                response.json().then(function(data) {
+                    if (data.errors) {
+                        showNotification('Error: ' + data.errors.map(e => e.message).join(', '), 'error');
+                    } else {
+                        showNotification('Oops! There was a problem sending your message.', 'error');
+                    }
+                });
+            }
+        })
+        .catch(function(error) {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            showNotification('Network error. Please try again later.', 'error');
+            console.error('Form submission error:', error);
+        });
     });
 }
 

@@ -3,25 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Responsiveness meta tag - ESSENTIAL for mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು | Karnatak Banjara Sahitya Parishattu</title>
-    <meta name="description" content="Banjara Sahitya Parishattu - Preserving and Promoting Banjara Literature, Culture, and Heritage">
+    <title>ಪ್ರಕಟಣೆಗಳು | Publications - Karnataka Banjara Sahitya Parishattu</title>
+    <meta name="description" content="Explore books, journals, and publications by Karnataka Banjara Sahitya Parishattu - preserving Banjara literary heritage.">
     
-    <!-- Favicon (placeholder - replace with your own) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     
-    <!-- Google Fonts - Beautiful, unique typography choices -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css?v=5">
+    
+    <!-- Publications Page Specific Styles -->
+    <style>
+        .publications-page {
+            min-height: 100vh;
+            padding-top: calc(var(--header-height) + var(--top-bar-height));
+            background: var(--color-off-white);
+        }
+        
+        /* Publications Hero */
+        .publications-hero {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+            padding: var(--space-2xl) 0;
+            text-align: center;
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .publications-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        
+        .publications-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .publications-hero-logo {
+            width: 90px;
+            height: auto;
+            border-radius: var(--radius-md);
+            background: var(--color-white);
+            padding: 8px;
+            margin: 0 auto var(--space-md);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .publications-hero h1 {
+            font-size: var(--text-2xl);
+            color: var(--color-white);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .publications-hero p {
+            font-size: var(--text-base);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Publications Content Section */
+        .publications-content {
+            padding: var(--space-4xl) 0;
+        }
+    </style>
 </head>
 <body>
     
@@ -69,37 +131,25 @@
                             <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="logo-image">
                         </div>
                         <div class="logo-text">
-                            <span class="logo-kannada">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು (ರಿ)</span>
-                            <span class="logo-english">Karnatak Banjara Sahitya Parishattu (R)</span>
+                            <span class="logo-kannada">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು</span>
+                            <span class="logo-english">Karnataka Banjara Sahitya Parishattu</span>
                         </div>
                     </a>
                     
                     <!-- Navigation Menu -->
                     <ul class="nav-menu" id="nav-menu">
-                        <li><a href="#home" class="nav-link active" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
-                        <!-- <li class="dropdown"> -->
-                            <!-- <a href="#about" class="nav-link dropdown-toggle" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ <i class="fas fa-chevron-down"></i></a> -->
-                            <a href="about.html" class="nav-link" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ </a>
-                            <!-- <ul class="dropdown-menu">
-                                <li><a href="#about" data-lang-kn="ನಮ್ಮ ಇತಿಹಾಸ" data-lang-en="Our History">ನಮ್ಮ ಇತಿಹಾಸ</a></li>
-                                <li><a href="#about" data-lang-kn="ಧ್ಯೇಯ ಮತ್ತು ದೃಷ್ಟಿ" data-lang-en="Mission & Vision">ಧ್ಯೇಯ ಮತ್ತು ದೃಷ್ಟಿ</a></li>
-                                <li><a href="#about" data-lang-kn="ನಾಯಕತ್ವ" data-lang-en="Leadership">ನಾಯಕತ್ವ</a></li>
-                                <li><a href="#about" data-lang-kn="ಸಾಧನೆಗಳು" data-lang-en="Achievements">ಸಾಧನೆಗಳು</a></li>
-                            </ul> -->
-                        <!-- </li> -->
+                        <li><a href="index.html" class="nav-link" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
+                        <li><a href="about.html" class="nav-link" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
                         <li><a href="events.html" class="nav-link" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
                         <li><a href="news.html" class="nav-link" data-lang-kn="ಸುದ್ದಿ" data-lang-en="News">ಸುದ್ದಿ</a></li>
-                        <li><a href="publications.html" class="nav-link" data-lang-kn="ಪ್ರಕಟಣೆಗಳು" data-lang-en="Publications">ಪ್ರಕಟಣೆಗಳು</a></li>
+                        <li><a href="publications.html" class="nav-link active" data-lang-kn="ಪ್ರಕಟಣೆಗಳು" data-lang-en="Publications">ಪ್ರಕಟಣೆಗಳು</a></li>
                         <li><a href="gallery.html" class="nav-link" data-lang-kn="ಗ್ಯಾಲರಿ" data-lang-en="Gallery">ಗ್ಯಾಲರಿ</a></li>
                         <li><a href="register.html" class="nav-link" data-lang-kn="ಸದಸ್ಯತ್ವ" data-lang-en="Membership">ಸದಸ್ಯತ್ವ</a></li>
                         <li><a href="contact.html" class="nav-link" data-lang-kn="ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact">ಸಂಪರ್ಕಿಸಿ</a></li>
-                        <!-- Admin link - uncomment when ready to use
-                        <li><a href="admin.html" class="nav-link admin-link" data-lang-kn="ನಿರ್ವಾಹಕ" data-lang-en="Admin"><i class="fas fa-cog"></i></a></li>
-                        -->
                     </ul>
                     
-                    <!-- Hamburger Menu Button (Mobile) -->
-                    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                    <!-- Hamburger Menu -->
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                         <span class="bar"></span>
                         <span class="bar"></span>
                         <span class="bar"></span>
@@ -108,86 +158,95 @@
             </div>
         </nav>
     </header>
-
-    <!-- ==================== HERO SECTION ==================== -->
-    <section class="hero" id="home">
-        <div class="hero-overlay"></div>
-        <div class="hero-pattern"></div>
+    
+    <main class="publications-page">
         
-        <!-- Sant Sevala Maharaj Image - Top Left Corner -->
-        <div class="sant-image-container">
-            <img src="images/HomePage/sant-sevala-maharaj.jpg" 
-                 alt="Sant Sevala Maharaj" 
-                 class="sant-image">
-            <span class="sant-name" data-lang-kn="ಸಂತ ಶ್ರೀ ಸೇವಾಲಾಲ್ ಮಹಾರಾಜರು" data-lang-en="Sant Shree Sevalal Maharaj">ಸಂತ ಸೇವಾಲಾಲ್ ಮಹಾರಾಜ್</span>
-        </div>
-        
-        <!-- Nagada Image - Right Side -->
-        <div class="nagada-image-container">
-            <img src="images/HomePage/Nagada-pic.jpeg" alt="Nagada - Traditional Banjara Drum" class="nagada-image">
-            <!-- <span class="nagada-text" data-lang-kn="ಮಾರೋ ನಂಗಾರಾ...<br>ಜಾಗೋ ಬಂಜಾರಾ.." data-lang-en="Maro Nangaara Jaago Banjaara">ಮಾರೋ ನಂಗಾರಾ ಜಾಗೋ ಬಂಜಾರಾ</span> -->
-            <span class="nagada-text">
-                <span data-lang-kn="ಮಾರೋ ನಂಗಾರಾ.." data-lang-en="Maro Nangaara..">ಮಾರೋ ನಂಗಾರಾ...</span>
-                <br>
-                <span class="nagada-text-line2" data-lang-kn="ಜಾಗೋ ಬಂಜಾರಾ...!" data-lang-en="Jaago Banjaara...!">ಜಾಗೋ ಬಂಜಾರಾ..</span>
-            </span>
-        </div>
-        
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-logo">
-                    <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="hero-logo-img">
-                </div>
-                <span class="hero-tagline" data-lang-kn="ಸ್ಥಾಪನೆ: 2024" data-lang-en="Established: 2024">ಸ್ಥಾಪನೆ: 2024</span>
-                <h1 class="hero-title">
-                    <span class="highlight" data-lang-kn="ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು (ರಿ)" data-lang-en="Karnataka Banjara Sahitya Parishattu (R)">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಪರಂಪರೆ</span>
-
-                    <!-- <span class="english-text" data-lang-kn="ಜಾಗೋ ಬಂಜಾರ.. ಮಾರೋ ನಂಗಾರಾ..." data-lang-en="Preserving & Celebrating Banjara Literature & Heritage..."></span> -->
-                    <span class="english-text" data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯ ಹಾಗೂ ಪರಂಪರೆಯ ಸಂರಕ್ಷಣೆ ಮತ್ತು ಆಚರಣೆಯಲ್ಲಿ..." data-lang-en="Preserving & Celebrating Banjara Literature & Heritage..."></span>
-                    <!-- <span class="highlight" data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಪರಂಪರೆ" data-lang-en="Banjara Literature & Heritage">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಪರಂಪರೆ</span> -->
-                </h1>
-                <!-- <p class="hero-description" data-lang-kn="ಕರ್ನಾಟಕ ಮತ್ತು ಅದರಾಚೆಗಿನ ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಸಂಪ್ರದಾಯಗಳು, ಸಂಸ್ಕೃತಿ ಮತ್ತು ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು, ಪ್ರಚಾರ ಮಾಡಲು ಮತ್ತು ಆಚರಿಸಲು ಸಮರ್ಪಿತವಾಗಿದೆ." data-lang-en="Dedicated to preserving, promoting, and celebrating the rich literary traditions, culture, and heritage of the Banjara community across Karnataka and beyond.">
-                    
-                </p> -->
-                <p class="hero-description" data-lang-kn="ಕರ್ನಾಟಕ ಮತ್ತು ವಿಶ್ವದಾದ್ಯಂತ ಹರಡಿಕೊಂಡಿರುವ ಬಂಜಾರ ಸಮುದಾಯದ ಸಾಹಿತ್ಯಿಕ, ಸಾಂಸ್ಕೃತಿಕ ಸಂಪ್ರದಾಯಗಳು ಹಾಗೂ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಆಚರಿಸಲು ಸಮರ್ಪಿತವಾಗಿದೆ." data-lang-en="Dedicated to preserving, promoting, and celebrating the rich literary tradition, culture and heritage of the Banjara community across Karnataka and beyond.">
-
-                <div class="hero-buttons">
-                    <!-- <a href="#events" class="btn btn-primary">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಅನ್ವೇಷಿಸಿ" data-lang-en="Explore Events">ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಅನ್ವೇಷಿಸಿ</span>
-                    </a> -->
-                    <a href="about.html" class="btn btn-banjara">
-                        <i class="fas fa-hands-praying"></i>
-                        <span data-lang-kn="ಸ್ವಾಗತ" data-lang-en="Welcome">ಸ್ವಾಗತ</span>
-                    </a>
-                </div>
-                <!-- <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number" data-count="40">40+</span>
-                        <span class="stat-label" data-lang-kn="ವರ್ಷಗಳ ಪರಂಪರೆ" data-lang-en="Years of Legacy">ವರ್ಷಗಳ ಪರಂಪರೆ</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number" data-count="5000">5000+</span>
-                        <span class="stat-label" data-lang-kn="ಸದಸ್ಯರು" data-lang-en="Members">ಸದಸ್ಯರು</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number" data-count="200">200+</span>
-                        <span class="stat-label" data-lang-kn="ಪ್ರಕಟಣೆಗಳು" data-lang-en="Publications">ಪ್ರಕಟಣೆಗಳು</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number" data-count="50">50+</span>
-                        <span class="stat-label" data-lang-kn="ವಾರ್ಷಿಕ ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Annual Events">ವಾರ್ಷಿಕ ಕಾರ್ಯಕ್ರಮಗಳು</span>
-                    </div>
-                </div> -->
+        <!-- Publications Hero -->
+        <section class="publications-hero">
+            <div class="container">
+                <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="publications-hero-logo">
+                <h1 data-lang-kn="ನಮ್ಮ ಪ್ರಕಟಣೆಗಳು" data-lang-en="Our Publications">ನಮ್ಮ ಪ್ರಕಟಣೆಗಳು</h1>
+                <p data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಸ್ಕೃತಿಯನ್ನು ಸಂರಕ್ಷಿಸುವ ಪುಸ್ತಕಗಳು ಮತ್ತು ನಿಯತಕಾಲಿಕೆಗಳು" data-lang-en="Books and journals preserving Banjara literature and culture">ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಸಂಸ್ಕೃತಿಯನ್ನು ಸಂರಕ್ಷಿಸುವ ಪುಸ್ತಕಗಳು ಮತ್ತು ನಿಯತಕಾಲಿಕೆಗಳು</p>
             </div>
-        </div>
-        <!-- <div class="scroll-indicator">
-            <a href="#about" aria-label="Scroll to about section">
-                <i class="fas fa-chevron-down"></i>
-            </a>
-        </div> -->
-    </section>
-
+        </section>
+        
+        <!-- Publications Content -->
+        <section class="publications-content">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle" data-lang-kn="ನಮ್ಮ ಪ್ರಕಟಣೆಗಳು" data-lang-en="Our Publications">ನಮ್ಮ ಪ್ರಕಟಣೆಗಳು</span>
+                    <h2 class="section-title" data-lang-kn="ಪುಸ್ತಕಗಳು ಮತ್ತು ನಿಯತಕಾಲಿಕೆಗಳು" data-lang-en="Books & Journals">ಪುಸ್ತಕಗಳು ಮತ್ತು ನಿಯತಕಾಲಿಕೆಗಳು</h2>
+                    <div class="section-divider">
+                        <span class="divider-icon"><i class="fas fa-book"></i></span>
+                    </div>
+                </div>
+                
+                <div class="publications-grid">
+                    <div class="publication-card">
+                        <div class="publication-cover">
+                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300" 
+                                 alt="Book cover">
+                            <div class="publication-overlay">
+                                <a href="#" class="btn btn-primary btn-small">View Details</a>
+                            </div>
+                        </div>
+                        <div class="publication-info">
+                            <h4>Banjara Sahitya Sarvaswa</h4>
+                            <p class="publication-author">Multiple Authors</p>
+                            <p class="publication-price">₹ 450</p>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card">
+                        <div class="publication-cover">
+                            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300" 
+                                 alt="Book cover">
+                            <div class="publication-overlay">
+                                <a href="#" class="btn btn-primary btn-small">View Details</a>
+                            </div>
+                        </div>
+                        <div class="publication-info">
+                            <h4>Lambada Geetalu Vol. 3</h4>
+                            <p class="publication-author">Dr. Naik Rathod</p>
+                            <p class="publication-price">₹ 350</p>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card">
+                        <div class="publication-cover">
+                            <img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=300" 
+                                 alt="Book cover">
+                            <div class="publication-overlay">
+                                <a href="#" class="btn btn-primary btn-small">View Details</a>
+                            </div>
+                        </div>
+                        <div class="publication-info">
+                            <h4>Tanda Kathegalu</h4>
+                            <p class="publication-author">Shri Bhimrao Naik</p>
+                            <p class="publication-price">₹ 280</p>
+                        </div>
+                    </div>
+                    
+                    <div class="publication-card">
+                        <div class="publication-cover">
+                            <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300" 
+                                 alt="Book cover">
+                            <div class="publication-overlay">
+                                <a href="#" class="btn btn-primary btn-small">View Details</a>
+                            </div>
+                        </div>
+                        <div class="publication-info">
+                            <h4>Banjara Charitre</h4>
+                            <p class="publication-author">Prof. Lakshmi Rathod</p>
+                            <p class="publication-price">₹ 520</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
     <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="footer-pattern"></div>
@@ -220,7 +279,7 @@
                         <div class="footer-column">
                             <h4 data-lang-kn="ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು" data-lang-en="Quick Links">ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು</h4>
                             <ul>
-                                <li><a href="#home" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
+                                <li><a href="index.html" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
                                 <li><a href="about.html" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
                                 <li><a href="events.html" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
                                 <li><a href="news.html" data-lang-kn="ಸುದ್ದಿ" data-lang-en="News">ಸುದ್ದಿ</a></li>
