@@ -2109,6 +2109,49 @@ input, textarea, select {
     }
     
     /* Hero adjustments */
+    .hero {
+        padding-top: var(--space-xl);
+    }
+    
+    .hero-content {
+        padding: var(--space-xl) 0;
+        margin-top: 0;
+    }
+    
+    .hero-logo {
+        margin-left: 0;
+        margin-bottom: var(--space-md);
+    }
+    
+    .hero-logo-img {
+        width: 120px;
+    }
+    
+    .hero-tagline {
+        margin-top: var(--space-sm);
+        margin-left: 0;
+        font-size: var(--text-xs);
+    }
+    
+    .hero-title {
+        margin-top: var(--space-md);
+    }
+    
+    .hero-title .highlight {
+        font-size: var(--text-xl);
+    }
+    
+    .hero-title .english-text {
+        font-size: var(--text-sm);
+        text-align: center;
+        padding-right: 0;
+    }
+    
+    .hero-description {
+        font-size: var(--text-sm);
+        padding: 0 var(--space-md);
+    }
+    
     .hero-stats {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-lg);
@@ -2117,6 +2160,41 @@ input, textarea, select {
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+        margin-left: 0;
+    }
+    
+    .hero-divider {
+        margin-top: var(--space-lg);
+    }
+    
+    .hero-divider .divider-line {
+        width: 30px;
+    }
+    
+    .hero-divider .jnana-jyothi-img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    /* Hide side images on mobile to prevent overlap */
+    .sant-image-container,
+    .nagada-image-container {
+        display: none;
+    }
+    
+    /* Header logo adjustments for mobile */
+    .logo-icon {
+        width: 60px;
+        height: 50px;
+        margin-top: 0;
+    }
+    
+    .logo-kannada {
+        font-size: var(--text-sm);
+    }
+    
+    .logo-english {
+        font-size: var(--text-xs);
     }
     
     /* Gallery adjustments */
@@ -2202,6 +2280,26 @@ input, textarea, select {
     
     .logo-text {
         display: none;
+    }
+    
+    .hero-logo-img {
+        width: 100px;
+    }
+    
+    .hero-title .highlight {
+        font-size: var(--text-lg);
+    }
+    
+    .hero-title .english-text {
+        font-size: var(--text-xs);
+    }
+    
+    .hero-description {
+        font-size: var(--text-xs);
+    }
+    
+    .btn-banjara {
+        transform: scale(0.9);
     }
     
     .hero-stats {
