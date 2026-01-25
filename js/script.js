@@ -256,9 +256,9 @@ function initSmoothScroll() {
                 
                 const headerHeight = document.getElementById('header').offsetHeight;
                 
-                // Apply extra offset to section links (except Contact which is at page bottom)
+                // Apply extra offset to section links (except Home and Contact)
                 let extraOffset = 0;
-                if (href !== '#contact') {
+                if (href !== '#contact' && href !== '#home') {
                     extraOffset = 48; // Half inch = ~48px, scroll higher
                 }
                 
