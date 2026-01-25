@@ -3,31 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Responsiveness meta tag - ESSENTIAL for mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು | Karnatak Banjara Sahitya Parishattu</title>
-    <meta name="description" content="Banjara Sahitya Parishattu - Preserving and Promoting Banjara Literature, Culture, and Heritage">
+    <title>ಸಂಪರ್ಕಿಸಿ | Contact Us - Karnataka Banjara Sahitya Parishattu</title>
+    <meta name="description" content="Contact Karnataka Banjara Sahitya Parishattu - Get in touch with us.">
     
-    <!-- Favicon (placeholder - replace with your own) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     
-    <!-- Google Fonts - Beautiful, unique typography choices -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/style.css?v=5">
+    <link rel="stylesheet" href="css/style.css?v=4">
+    
+    <!-- Page Specific Styles -->
+    <style>
+        .contact-page {
+            min-height: 100vh;
+            padding-top: calc(var(--header-height) + var(--top-bar-height));
+            background: var(--color-off-white);
+        }
+        
+        .contact-hero {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+            padding: var(--space-2xl) 0;
+            text-align: center;
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        
+        .contact-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-hero-logo {
+            width: 90px;
+            height: auto;
+            border-radius: var(--radius-md);
+            background: var(--color-white);
+            padding: 8px;
+            margin: 0 auto var(--space-md);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .contact-hero h1 {
+            font-size: var(--text-2xl);
+            color: var(--color-white);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .contact-hero p {
+            font-size: var(--text-base);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-page-content {
+            padding: var(--space-4xl) 0;
+        }
+    </style>
 </head>
 <body>
     
     <!-- ==================== HEADER / NAVIGATION ==================== -->
     <header class="header" id="header">
-        <!-- Top Bar with Contact Info & Social Media -->
         <div class="top-bar">
             <div class="container">
                 <div class="top-bar-content">
@@ -36,7 +95,6 @@
                         <span><i class="fas fa-envelope"></i> banjarasahityaparishattu@gmail.com</span>
                     </div>
                     <div class="top-bar-right">
-                        <!-- Language Switcher -->
                         <div class="language-switcher" id="language-switcher">
                             <button class="lang-btn active" data-lang="kn" aria-label="ಕನ್ನಡ">
                                 <span class="lang-flag">ಕ</span>
@@ -59,47 +117,31 @@
             </div>
         </div>
         
-        <!-- Main Navigation -->
         <nav class="navbar">
             <div class="container">
                 <div class="nav-content">
-                    <!-- Logo -->
                     <a href="index.html" class="logo">
                         <div class="logo-icon">
                             <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="logo-image">
                         </div>
                         <div class="logo-text">
-                            <span class="logo-kannada">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು (ರಿ)</span>
-                            <span class="logo-english">Karnatak Banjara Sahitya Parishattu (R)</span>
+                            <span class="logo-kannada">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು</span>
+                            <span class="logo-english">Karnataka Banjara Sahitya Parishattu</span>
                         </div>
                     </a>
                     
-                    <!-- Navigation Menu -->
                     <ul class="nav-menu" id="nav-menu">
-                        <li><a href="#home" class="nav-link active" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
-                        <!-- <li class="dropdown"> -->
-                            <!-- <a href="#about" class="nav-link dropdown-toggle" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ <i class="fas fa-chevron-down"></i></a> -->
-                            <a href="about.html" class="nav-link" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ </a>
-                            <!-- <ul class="dropdown-menu">
-                                <li><a href="#about" data-lang-kn="ನಮ್ಮ ಇತಿಹಾಸ" data-lang-en="Our History">ನಮ್ಮ ಇತಿಹಾಸ</a></li>
-                                <li><a href="#about" data-lang-kn="ಧ್ಯೇಯ ಮತ್ತು ದೃಷ್ಟಿ" data-lang-en="Mission & Vision">ಧ್ಯೇಯ ಮತ್ತು ದೃಷ್ಟಿ</a></li>
-                                <li><a href="#about" data-lang-kn="ನಾಯಕತ್ವ" data-lang-en="Leadership">ನಾಯಕತ್ವ</a></li>
-                                <li><a href="#about" data-lang-kn="ಸಾಧನೆಗಳು" data-lang-en="Achievements">ಸಾಧನೆಗಳು</a></li>
-                            </ul> -->
-                        <!-- </li> -->
+                        <li><a href="index.html" class="nav-link" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
+                        <li><a href="about.html" class="nav-link" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
                         <li><a href="events.html" class="nav-link" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
                         <li><a href="news.html" class="nav-link" data-lang-kn="ಸುದ್ದಿ" data-lang-en="News">ಸುದ್ದಿ</a></li>
                         <li><a href="publications.html" class="nav-link" data-lang-kn="ಪ್ರಕಟಣೆಗಳು" data-lang-en="Publications">ಪ್ರಕಟಣೆಗಳು</a></li>
                         <li><a href="gallery.html" class="nav-link" data-lang-kn="ಗ್ಯಾಲರಿ" data-lang-en="Gallery">ಗ್ಯಾಲರಿ</a></li>
                         <li><a href="register.html" class="nav-link" data-lang-kn="ಸದಸ್ಯತ್ವ" data-lang-en="Membership">ಸದಸ್ಯತ್ವ</a></li>
-                        <li><a href="contact.html" class="nav-link" data-lang-kn="ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact">ಸಂಪರ್ಕಿಸಿ</a></li>
-                        <!-- Admin link - uncomment when ready to use
-                        <li><a href="admin.html" class="nav-link admin-link" data-lang-kn="ನಿರ್ವಾಹಕ" data-lang-en="Admin"><i class="fas fa-cog"></i></a></li>
-                        -->
+                        <li><a href="contact.html" class="nav-link active" data-lang-kn="ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact">ಸಂಪರ್ಕಿಸಿ</a></li>
                     </ul>
                     
-                    <!-- Hamburger Menu Button (Mobile) -->
-                    <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                         <span class="bar"></span>
                         <span class="bar"></span>
                         <span class="bar"></span>
@@ -108,86 +150,107 @@
             </div>
         </nav>
     </header>
-
-    <!-- ==================== HERO SECTION ==================== -->
-    <section class="hero" id="home">
-        <div class="hero-overlay"></div>
-        <div class="hero-pattern"></div>
+    
+    <main class="contact-page">
         
-        <!-- Sant Sevala Maharaj Image - Top Left Corner -->
-        <div class="sant-image-container">
-            <img src="images/HomePage/sant-sevala-maharaj.jpg" 
-                 alt="Sant Sevala Maharaj" 
-                 class="sant-image">
-            <span class="sant-name" data-lang-kn="ಸಂತ ಶ್ರೀ ಸೇವಾಲಾಲ್ ಮಹಾರಾಜರು" data-lang-en="Sant Shree Sevalal Maharaj">ಸಂತ ಸೇವಾಲಾಲ್ ಮಹಾರಾಜ್</span>
-        </div>
-        
-        <!-- Nagada Image - Right Side -->
-        <div class="nagada-image-container">
-            <img src="images/HomePage/Nagada-pic.jpeg" alt="Nagada - Traditional Banjara Drum" class="nagada-image">
-            <!-- <span class="nagada-text" data-lang-kn="ಮಾರೋ ನಂಗಾರಾ...<br>ಜಾಗೋ ಬಂಜಾರಾ.." data-lang-en="Maro Nangaara Jaago Banjaara">ಮಾರೋ ನಂಗಾರಾ ಜಾಗೋ ಬಂಜಾರಾ</span> -->
-            <span class="nagada-text">
-                <span data-lang-kn="ಮಾರೋ ನಂಗಾರಾ.." data-lang-en="Maro Nangaara..">ಮಾರೋ ನಂಗಾರಾ...</span>
-                <br>
-                <span class="nagada-text-line2" data-lang-kn="ಜಾಗೋ ಬಂಜಾರಾ...!" data-lang-en="Jaago Banjaara...!">ಜಾಗೋ ಬಂಜಾರಾ..</span>
-            </span>
-        </div>
-        
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-logo">
-                    <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="hero-logo-img">
-                </div>
-                <span class="hero-tagline" data-lang-kn="ಸ್ಥಾಪನೆ: 2024" data-lang-en="Established: 2024">ಸ್ಥಾಪನೆ: 2024</span>
-                <h1 class="hero-title">
-                    <span class="highlight" data-lang-kn="ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು (ರಿ)" data-lang-en="Karnataka Banjara Sahitya Parishattu (R)">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಪರಂಪರೆ</span>
-
-                    <!-- <span class="english-text" data-lang-kn="ಜಾಗೋ ಬಂಜಾರ.. ಮಾರೋ ನಂಗಾರಾ..." data-lang-en="Preserving & Celebrating Banjara Literature & Heritage..."></span> -->
-                    <span class="english-text" data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯ ಹಾಗೂ ಪರಂಪರೆಯ ಸಂರಕ್ಷಣೆ ಮತ್ತು ಆಚರಣೆಯಲ್ಲಿ..." data-lang-en="Preserving & Celebrating Banjara Literature & Heritage..."></span>
-                    <!-- <span class="highlight" data-lang-kn="ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಪರಂಪರೆ" data-lang-en="Banjara Literature & Heritage">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಮತ್ತು ಪರಂಪರೆ</span> -->
-                </h1>
-                <!-- <p class="hero-description" data-lang-kn="ಕರ್ನಾಟಕ ಮತ್ತು ಅದರಾಚೆಗಿನ ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಸಂಪ್ರದಾಯಗಳು, ಸಂಸ್ಕೃತಿ ಮತ್ತು ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು, ಪ್ರಚಾರ ಮಾಡಲು ಮತ್ತು ಆಚರಿಸಲು ಸಮರ್ಪಿತವಾಗಿದೆ." data-lang-en="Dedicated to preserving, promoting, and celebrating the rich literary traditions, culture, and heritage of the Banjara community across Karnataka and beyond.">
-                    
-                </p> -->
-                <p class="hero-description" data-lang-kn="ಕರ್ನಾಟಕ ಮತ್ತು ವಿಶ್ವದಾದ್ಯಂತ ಹರಡಿಕೊಂಡಿರುವ ಬಂಜಾರ ಸಮುದಾಯದ ಸಾಹಿತ್ಯಿಕ, ಸಾಂಸ್ಕೃತಿಕ ಸಂಪ್ರದಾಯಗಳು ಹಾಗೂ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಆಚರಿಸಲು ಸಮರ್ಪಿತವಾಗಿದೆ." data-lang-en="Dedicated to preserving, promoting, and celebrating the rich literary tradition, culture and heritage of the Banjara community across Karnataka and beyond.">
-
-                <div class="hero-buttons">
-                    <!-- <a href="#events" class="btn btn-primary">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಅನ್ವೇಷಿಸಿ" data-lang-en="Explore Events">ಕಾರ್ಯಕ್ರಮಗಳನ್ನು ಅನ್ವೇಷಿಸಿ</span>
-                    </a> -->
-                    <a href="about.html" class="btn btn-banjara">
-                        <i class="fas fa-hands-praying"></i>
-                        <span data-lang-kn="ಸ್ವಾಗತ" data-lang-en="Welcome">ಸ್ವಾಗತ</span>
-                    </a>
-                </div>
-                <!-- <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number" data-count="40">40+</span>
-                        <span class="stat-label" data-lang-kn="ವರ್ಷಗಳ ಪರಂಪರೆ" data-lang-en="Years of Legacy">ವರ್ಷಗಳ ಪರಂಪರೆ</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number" data-count="5000">5000+</span>
-                        <span class="stat-label" data-lang-kn="ಸದಸ್ಯರು" data-lang-en="Members">ಸದಸ್ಯರು</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number" data-count="200">200+</span>
-                        <span class="stat-label" data-lang-kn="ಪ್ರಕಟಣೆಗಳು" data-lang-en="Publications">ಪ್ರಕಟಣೆಗಳು</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number" data-count="50">50+</span>
-                        <span class="stat-label" data-lang-kn="ವಾರ್ಷಿಕ ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Annual Events">ವಾರ್ಷಿಕ ಕಾರ್ಯಕ್ರಮಗಳು</span>
-                    </div>
-                </div> -->
+        <!-- Contact Hero -->
+        <section class="contact-hero">
+            <div class="container">
+                <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="contact-hero-logo">
+                <h1 data-lang-kn="ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact Us">ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ</h1>
+                <p data-lang-kn="ನಮ್ಮೊಂದಿಗೆ ಸಂಪರ್ಕದಲ್ಲಿರಿ - ನಿಮ್ಮ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಿಸಲು ನಾವು ಸಿದ್ಧರಿದ್ದೇವೆ" data-lang-en="Get in touch with us - We are ready to answer your questions">ನಮ್ಮೊಂದಿಗೆ ಸಂಪರ್ಕದಲ್ಲಿರಿ - ನಿಮ್ಮ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಿಸಲು ನಾವು ಸಿದ್ಧರಿದ್ದೇವೆ</p>
             </div>
-        </div>
-        <!-- <div class="scroll-indicator">
-            <a href="#about" aria-label="Scroll to about section">
-                <i class="fas fa-chevron-down"></i>
-            </a>
-        </div> -->
-    </section>
-
+        </section>
+        
+        <!-- Contact Content -->
+        <section class="contact-page-content contact section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle" data-lang-kn="ಸಂಪರ್ಕದಲ್ಲಿರಿ" data-lang-en="Get in Touch">ಸಂಪರ್ಕದಲ್ಲಿರಿ</span>
+                    <h2 class="section-title" data-lang-kn="ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact Us">ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ</h2>
+                    <div class="section-divider">
+                        <span class="divider-icon"><i class="fas fa-envelope"></i></span>
+                    </div>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info-grid">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h4>Address</h4>
+                            <p>256, Banjara Colony<br>
+                               Gokula Road<br>
+                               Hubballi - 580027<br> 
+                               Karnataka, India</p>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h4>Phone</h4>
+                            <p>+91 xxxx xxxx<br>
+                               +91 xx xxxx xxxx</p>
+                            <p class="contact-hours">Mon - Sat: 10 AM - 5 PM</p>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h4>Email</h4>
+                            <p>banjarasahityaparishattu@gmail.com</p>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <h4>Follow Us</h4>
+                            <div class="contact-social">
+                                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-wrapper">
+                        <h3 data-lang-kn="ನಮಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿ" data-lang-en="Send us a Message">ನಮಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿ</h3>
+                        <form class="contact-form" id="contact-form" action="https://formspree.io/f/mykeqwlv" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name" data-lang-kn="ನಿಮ್ಮ ಹೆಸರು *" data-lang-en="Your Name *">ನಿಮ್ಮ ಹೆಸರು *</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" data-lang-kn="ಇಮೇಲ್ ವಿಳಾಸ *" data-lang-en="Email Address *">ಇಮೇಲ್ ವಿಳಾಸ *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" data-lang-kn="ವಿಷಯ *" data-lang-en="Subject *">ವಿಷಯ *</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" data-lang-kn="ನಿಮ್ಮ ಸಂದೇಶ *" data-lang-en="Your Message *">ನಿಮ್ಮ ಸಂದೇಶ *</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                <span data-lang-kn="ಸಂದೇಶ ಕಳುಹಿಸಿ" data-lang-en="Send Message">ಸಂದೇಶ ಕಳುಹಿಸಿ</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
     <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="footer-pattern"></div>
@@ -220,7 +283,7 @@
                         <div class="footer-column">
                             <h4 data-lang-kn="ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು" data-lang-en="Quick Links">ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು</h4>
                             <ul>
-                                <li><a href="#home" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
+                                <li><a href="index.html" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
                                 <li><a href="about.html" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
                                 <li><a href="events.html" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
                                 <li><a href="news.html" data-lang-kn="ಸುದ್ದಿ" data-lang-en="News">ಸುದ್ದಿ</a></li>
@@ -286,12 +349,10 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <!-- Main JavaScript -->
     <script src="js/script.js"></script>
 </body>
 </html>

@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Main CSS -->
-    <link rel="stylesheet" href="css/style.css?v=3">
+    <link rel="stylesheet" href="css/style.css?v=5">
     
     <!-- Gallery Page Specific Styles -->
     <style>
@@ -36,17 +36,45 @@
             padding: var(--space-2xl) 0;    
             text-align: center;
             color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        
+        .gallery-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .gallery-hero-logo {
+            width: 90px;
+            height: auto;
+            border-radius: var(--radius-md);
+            background: var(--color-white);
+            padding: 8px;
+            margin: 0 auto var(--space-md);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
         
         .gallery-hero h1 {
-            font-size: var(--text-3xl);
+            font-size: var(--text-2xl);
             color: var(--color-white);
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-sm);
             text-align: center;
         }
         
         .gallery-hero p {
-            font-size: var(--text-lg);
+            font-size: var(--text-base);
             opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
@@ -512,10 +540,13 @@
                     <!-- Navigation Menu -->
                     <ul class="nav-menu" id="nav-menu">
                         <li><a href="index.html" class="nav-link" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
-                        <li><a href="index.html#about" class="nav-link" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
-                        <li><a href="index.html#events" class="nav-link" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
+                        <li><a href="about.html" class="nav-link" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
+                        <li><a href="events.html" class="nav-link" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
+                        <li><a href="news.html" class="nav-link" data-lang-kn="ಸುದ್ದಿ" data-lang-en="News">ಸುದ್ದಿ</a></li>
+                        <li><a href="publications.html" class="nav-link" data-lang-kn="ಪ್ರಕಟಣೆಗಳು" data-lang-en="Publications">ಪ್ರಕಟಣೆಗಳು</a></li>
                         <li><a href="gallery.html" class="nav-link active" data-lang-kn="ಗ್ಯಾಲರಿ" data-lang-en="Gallery">ಗ್ಯಾಲರಿ</a></li>
-                        <li><a href="index.html#contact" class="nav-link" data-lang-kn="ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact">ಸಂಪರ್ಕಿಸಿ</a></li>
+                        <li><a href="register.html" class="nav-link" data-lang-kn="ಸದಸ್ಯತ್ವ" data-lang-en="Membership">ಸದಸ್ಯತ್ವ</a></li>
+                        <li><a href="contact.html" class="nav-link" data-lang-kn="ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact">ಸಂಪರ್ಕಿಸಿ</a></li>
                         <!-- Admin link - uncomment when ready to use
                         <li><a href="admin.html" class="nav-link admin-link" data-lang-kn="ನಿರ್ವಾಹಕ" data-lang-en="Admin"><i class="fas fa-cog"></i></a></li>
                         -->
@@ -538,6 +569,7 @@
         <!-- Gallery Hero -->
         <section class="gallery-hero">
             <div class="container">
+                <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="gallery-hero-logo">
                 <h1 data-lang-kn="ಫೋಟೋ ಗ್ಯಾಲರಿ" data-lang-en="Photo Gallery">ಫೋಟೋ ಗ್ಯಾಲರಿ</h1>
                 <p data-lang-kn="ನಮ್ಮ ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ಚಟುವಟಿಕೆಗಳ ನೆನಪುಗಳನ್ನು ಅನ್ವೇಷಿಸಿ" data-lang-en="Explore memories from our events and activities">
                     ನಮ್ಮ ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ಚಟುವಟಿಕೆಗಳ ನೆನಪುಗಳನ್ನು ಅನ್ವೇಷಿಸಿ
@@ -545,8 +577,69 @@
             </div>
         </section>
         
+        <!-- ==================== VISUAL STORIES PREVIEW SECTION ==================== -->
+        <section class="gallery section" id="gallery-preview">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle" data-lang-kn="ದೃಶ್ಯ ಕಥೆಗಳು" data-lang-en="Visual Stories">ದೃಶ್ಯ ಕಥೆಗಳು</span>
+                    <h2 class="section-title" data-lang-kn="ಫೋಟೋ ಗ್ಯಾಲರಿ" data-lang-en="Photo Gallery">ಫೋಟೋ ಗ್ಯಾಲರಿ</h2>
+                    <div class="section-divider">
+                        <span class="divider-icon"><i class="fas fa-images"></i></span>
+                    </div>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item large">
+                        <img src="images/GalleryPage/LiteraryConference/literary-conf-1.jpeg" alt="Literary Conference">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                            <span>Literary Conference</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/GalleryPage/Workshops/literary-workshop-1.jpeg" alt="Literary Workshop">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                            <span>Workshops</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/GalleryPage/AwardCeremony/literary-award-1.jpeg" alt="Award Ceremony">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                            <span>Award Ceremony</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/GalleryPage/BookRelease/book-launch-image-1.jpeg" alt="Book Release">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                            <span>Book Release</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/GalleryPage/CulturalEvents/cultural-event-1.jpeg" alt="Cultural Event">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand"></i>
+                            <span>Cultural Events</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-footer">
+                    <a href="#" class="btn btn-outline" id="view-full-gallery-btn">
+                        <span data-lang-kn="ಪೂರ್ಣ ಗ್ಯಾಲರಿ ನೋಡಿ" data-lang-en="View Full Gallery">ಪೂರ್ಣ ಗ್ಯಾಲರಿ ನೋಡಿ</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Full Gallery Content (hidden by default) -->
+        <div id="full-gallery-content" style="display: none;">
+        
         <!-- Filter Tabs -->
-        <section class="gallery-filters">
+        <section class="gallery-filters" id="full-gallery">
             <div class="container">
                 <div class="filter-tabs">
                     <button class="filter-tab active" data-filter="all" data-lang-kn="ಎಲ್ಲಾ ಫೋಟೋಗಳು" data-lang-en="All Photos">ಎಲ್ಲಾ ಫೋಟೋಗಳು</button>
@@ -908,6 +1001,8 @@
             </div>
         </section> -->
         
+        </div><!-- End of full-gallery-content wrapper -->
+        
     </main>
 
     <!-- Lightbox -->
@@ -923,17 +1018,98 @@
     </div>
 
     <!-- ==================== FOOTER ==================== -->
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="footer-pattern"></div>
         <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <div class="logo-icon">
+                                <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="footer-logo-img">
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-kannada">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು</span>
+                                <span class="logo-english">Karnataka Banjara Sahitya Parishattu</span>
+                            </div>
+                        </a>
+                        <p class="footer-description" data-lang-kn="ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಪ್ರಚಾರ ಮಾಡಲು ಸಮರ್ಪಿತವಾಗಿದೆ." data-lang-en="Dedicated to preserving and promoting the rich literary heritage of the Banjara community.">
+                            ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಪ್ರಚಾರ ಮಾಡಲು ಸಮರ್ಪಿತವಾಗಿದೆ.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4 data-lang-kn="ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು" data-lang-en="Quick Links">ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು</h4>
+                            <ul>
+                                <li><a href="index.html" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
+                                <li><a href="about.html" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
+                                <li><a href="events.html" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
+                                <li><a href="news.html" data-lang-kn="ಸುದ್ದಿ" data-lang-en="News">ಸುದ್ದಿ</a></li>
+                                <li><a href="publications.html" data-lang-kn="ಪ್ರಕಟಣೆಗಳು" data-lang-en="Publications">ಪ್ರಕಟಣೆಗಳು</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 data-lang-kn="ಸಂಪನ್ಮೂಲಗಳು" data-lang-en="Resources">ಸಂಪನ್ಮೂಲಗಳು</h4>
+                            <ul>
+                                <li><a href="#" data-lang-kn="ಡಿಜಿಟಲ್ ಆರ್ಕೈವ್" data-lang-en="Digital Archive">ಡಿಜಿಟಲ್ ಆರ್ಕೈವ್</a></li>
+                                <li><a href="#" data-lang-kn="ಸಂಶೋಧನಾ ಪತ್ರಿಕೆಗಳು" data-lang-en="Research Papers">ಸಂಶೋಧನಾ ಪತ್ರಿಕೆಗಳು</a></li>
+                                <li><a href="#" data-lang-kn="ಹಸ್ತಪ್ರತಿಗಳು" data-lang-en="Manuscripts">ಹಸ್ತಪ್ರತಿಗಳು</a></li>
+                                <li><a href="#" data-lang-kn="ಆಡಿಯೋ ಗ್ರಂಥಾಲಯ" data-lang-en="Audio Library">ಆಡಿಯೋ ಗ್ರಂಥಾಲಯ</a></li>
+                                <li><a href="#" data-lang-kn="ವೀಡಿಯೋ ಗ್ಯಾಲರಿ" data-lang-en="Video Gallery">ವೀಡಿಯೋ ಗ್ಯಾಲರಿ</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 data-lang-kn="ಭಾಗವಹಿಸಿ" data-lang-en="Get Involved">ಭಾಗವಹಿಸಿ</h4>
+                            <ul>
+                                <li><a href="register.html" data-lang-kn="ಸದಸ್ಯತ್ವ" data-lang-en="Membership">ಸದಸ್ಯತ್ವ</a></li>
+                                <li><a href="#" data-lang-kn="ಸ್ವಯಂಸೇವಕ" data-lang-en="Volunteer">ಸ್ವಯಂಸೇವಕ</a></li>
+                                <li><a href="#" data-lang-kn="ದೇಣಿಗೆ ನೀಡಿ" data-lang-en="Donate">ದೇಣಿಗೆ ನೀಡಿ</a></li>
+                                <li><a href="#" data-lang-kn="ಬರಹ ಸಲ್ಲಿಸಿ" data-lang-en="Submit Writing">ಬರಹ ಸಲ್ಲಿಸಿ</a></li>
+                                <li><a href="#" data-lang-kn="ನಮ್ಮೊಂದಿಗೆ ಪಾಲುದಾರರಾಗಿ" data-lang-en="Partner With Us">ನಮ್ಮೊಂದಿಗೆ ಪಾಲುದಾರರಾಗಿ</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 data-lang-kn="ಸಂಪರ್ಕ ಮಾಹಿತಿ" data-lang-en="Contact Info">ಸಂಪರ್ಕ ಮಾಹಿತಿ</h4>
+                            <ul class="footer-contact">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span data-lang-kn="256, ಬಂಜಾರ ಕಾಲೋನಿ<br>ಗೋಕುಲ ರಸ್ತೆ, ಹುಬ್ಬಳ್ಳಿ - 580027<br>ಕರ್ನಾಟಕ" data-lang-en="256, Banjara Colony<br>Gokula Road, Hubballi - 590027<br>Karnataka">ಬಂಜಾರ ಸಾಹಿತ್ಯ ಭವನ<br>ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone"></i>
+                                    <span>+91 xxxxxxxxxx</span>
+                                </li>
+                                <li style="align-items: center;">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>banjarasahityaparishattu@gmail.com</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
-                    <p class="copyright">
-                        © 2026 Karnataka Banjara Sahitya Parishattu. All Rights Reserved.
+                    <p class="copyright" data-lang-kn="© 2026 ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ." data-lang-en="© 2026 Karnataka Banjara Sahitya Parishattu. All Rights Reserved.">
+                        © 2026 ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.
                     </p>
                     <ul class="footer-legal">
-                        <li><a href="index.html">Home</a></li>
                         <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Sitemap</a></li>
                     </ul>
                 </div>
             </div>
@@ -950,6 +1126,72 @@
     
     <!-- Gallery Page Script -->
     <script>
+        // View Full Gallery toggle functionality
+        const viewFullGalleryBtn = document.getElementById('view-full-gallery-btn');
+        const fullGalleryContent = document.getElementById('full-gallery-content');
+        
+        if (viewFullGalleryBtn && fullGalleryContent) {
+            viewFullGalleryBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Show the full gallery content with smooth animation
+                if (fullGalleryContent.style.display === 'none') {
+                    fullGalleryContent.style.display = 'block';
+                    fullGalleryContent.style.animation = 'fadeInUp 0.5s ease-out';
+                    
+                    // Update button text
+                    const btnTextEn = this.querySelector('[data-lang-en]');
+                    const btnTextKn = this.querySelector('[data-lang-kn]');
+                    if (btnTextEn) btnTextEn.setAttribute('data-lang-en', 'Hide Gallery');
+                    if (btnTextKn) btnTextKn.setAttribute('data-lang-kn', 'ಗ್ಯಾಲರಿ ಮರೆಮಾಡಿ');
+                    
+                    // Update displayed text based on current language
+                    const currentLang = localStorage.getItem('preferredLanguage') || 'kn';
+                    const spanElement = this.querySelector('span');
+                    if (spanElement) {
+                        spanElement.textContent = currentLang === 'en' ? 'Hide Gallery' : 'ಗ್ಯಾಲರಿ ಮರೆಮಾಡಿ';
+                    }
+                    
+                    // Change arrow direction
+                    const icon = this.querySelector('.fas');
+                    if (icon) {
+                        icon.classList.remove('fa-arrow-right');
+                        icon.classList.add('fa-chevron-up');
+                    }
+                    
+                    // Scroll to the full gallery
+                    setTimeout(() => {
+                        document.getElementById('full-gallery').scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }, 100);
+                } else {
+                    fullGalleryContent.style.display = 'none';
+                    
+                    // Update button text back
+                    const btnTextEn = this.querySelector('[data-lang-en]');
+                    const btnTextKn = this.querySelector('[data-lang-kn]');
+                    if (btnTextEn) btnTextEn.setAttribute('data-lang-en', 'View Full Gallery');
+                    if (btnTextKn) btnTextKn.setAttribute('data-lang-kn', 'ಪೂರ್ಣ ಗ್ಯಾಲರಿ ನೋಡಿ');
+                    
+                    // Update displayed text based on current language
+                    const currentLang = localStorage.getItem('preferredLanguage') || 'kn';
+                    const spanElement = this.querySelector('span');
+                    if (spanElement) {
+                        spanElement.textContent = currentLang === 'en' ? 'View Full Gallery' : 'ಪೂರ್ಣ ಗ್ಯಾಲರಿ ನೋಡಿ';
+                    }
+                    
+                    // Change arrow direction back
+                    const icon = this.querySelector('.fas');
+                    if (icon) {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-arrow-right');
+                    }
+                }
+            });
+        }
+        
         // Filter functionality
         const filterTabs = document.querySelectorAll('.filter-tab');
         const eventSections = document.querySelectorAll('.event-gallery-section');
