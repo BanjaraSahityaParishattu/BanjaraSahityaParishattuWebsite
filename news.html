@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>ಸುದ್ದಿ | News - Karnataka Banjara Sahitya Parishattu</title>
+    <meta name="description" content="Latest news and announcements from Karnataka Banjara Sahitya Parishattu.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css?v=4">
+    
+    <!-- Page Specific Styles -->
+    <style>
+        .news-page {
+            min-height: 100vh;
+            padding-top: calc(var(--header-height) + var(--top-bar-height));
+            background: var(--color-off-white);
+        }
+        
+        .news-hero {
+            background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+            padding: var(--space-2xl) 0;
+            text-align: center;
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .news-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        
+        .news-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .news-hero-logo {
+            width: 90px;
+            height: auto;
+            border-radius: var(--radius-md);
+            background: var(--color-white);
+            padding: 8px;
+            margin: 0 auto var(--space-md);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .news-hero h1 {
+            font-size: var(--text-2xl);
+            color: var(--color-white);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .news-hero p {
+            font-size: var(--text-base);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .news-content {
+            padding: var(--space-4xl) 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- ==================== HEADER / NAVIGATION ==================== -->
+    <header class="header" id="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="contact-info">
+                        <span><i class="fas fa-phone"></i> +91 xxxx xxxx</span>
+                        <span><i class="fas fa-envelope"></i> banjarasahityaparishattu@gmail.com</span>
+                    </div>
+                    <div class="top-bar-right">
+                        <div class="language-switcher" id="language-switcher">
+                            <button class="lang-btn active" data-lang="kn" aria-label="ಕನ್ನಡ">
+                                <span class="lang-flag">ಕ</span>
+                                <span class="lang-name">ಕನ್ನಡ</span>
+                            </button>
+                            <span class="lang-divider">|</span>
+                            <button class="lang-btn" data-lang="en" aria-label="English">
+                                <span class="lang-flag">A</span>
+                                <span class="lang-name">English</span>
+                            </button>
+                        </div>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="logo-image">
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-kannada">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು</span>
+                            <span class="logo-english">Karnataka Banjara Sahitya Parishattu</span>
+                        </div>
+                    </a>
+                    
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="index.html" class="nav-link" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
+                        <li><a href="about.html" class="nav-link" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
+                        <li><a href="events.html" class="nav-link" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
+                        <li><a href="news.html" class="nav-link active" data-lang-kn="ಸುದ್ದಿ" data-lang-en="News">ಸುದ್ದಿ</a></li>
+                        <li><a href="publications.html" class="nav-link" data-lang-kn="ಪ್ರಕಟಣೆಗಳು" data-lang-en="Publications">ಪ್ರಕಟಣೆಗಳು</a></li>
+                        <li><a href="gallery.html" class="nav-link" data-lang-kn="ಗ್ಯಾಲರಿ" data-lang-en="Gallery">ಗ್ಯಾಲರಿ</a></li>
+                        <li><a href="register.html" class="nav-link" data-lang-kn="ಸದಸ್ಯತ್ವ" data-lang-en="Membership">ಸದಸ್ಯತ್ವ</a></li>
+                        <li><a href="contact.html" class="nav-link" data-lang-kn="ಸಂಪರ್ಕಿಸಿ" data-lang-en="Contact">ಸಂಪರ್ಕಿಸಿ</a></li>
+                    </ul>
+                    
+                    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="news-page">
+        
+        <!-- News Hero -->
+        <section class="news-hero">
+            <div class="container">
+                <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="news-hero-logo">
+                <h1 data-lang-kn="ಇತ್ತೀಚಿನ ಸುದ್ದಿ ಮತ್ತು ಪ್ರಕಟಣೆಗಳು" data-lang-en="Latest News & Announcements">ಇತ್ತೀಚಿನ ಸುದ್ದಿ ಮತ್ತು ಪ್ರಕಟಣೆಗಳು</h1>
+                <p data-lang-kn="ನಮ್ಮ ಚಟುವಟಿಕೆಗಳು ಮತ್ತು ಸಾಧನೆಗಳ ಬಗ್ಗೆ ನವೀಕೃತವಾಗಿರಿ" data-lang-en="Stay updated on our activities and achievements">ನಮ್ಮ ಚಟುವಟಿಕೆಗಳು ಮತ್ತು ಸಾಧನೆಗಳ ಬಗ್ಗೆ ನವೀಕೃತವಾಗಿರಿ</p>
+            </div>
+        </section>
+        
+        <!-- News Content -->
+        <section class="news-content">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle" data-lang-kn="ನವೀಕೃತವಾಗಿರಿ" data-lang-en="Stay Updated">ನವೀಕೃತವಾಗಿರಿ</span>
+                    <h2 class="section-title" data-lang-kn="ಇತ್ತೀಚಿನ ಸುದ್ದಿ ಮತ್ತು ಪ್ರಕಟಣೆಗಳು" data-lang-en="Latest News & Announcements">ಇತ್ತೀಚಿನ ಸುದ್ದಿ ಮತ್ತು ಪ್ರಕಟಣೆಗಳು</h2>
+                    <div class="section-divider">
+                        <span class="divider-icon"><i class="fas fa-newspaper"></i></span>
+                    </div>
+                </div>
+                
+                <div class="news-grid">
+                    <!-- News Card 1 -->
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400" 
+                                 alt="Book launch ceremony">
+                            <span class="news-category">Literature</span>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span><i class="far fa-calendar"></i> January 15, 2026</span>
+                                <span><i class="far fa-user"></i> Admin</span>
+                            </div>
+                            <h3 class="news-title">Annual Banjara Sahitya Sammelana 2026 Announced</h3>
+                            <p class="news-excerpt">
+                                The 41st Annual Literary Conference will be held in Gulbarga this March. 
+                                Registrations are now open for all members and literary enthusiasts...
+                            </p>
+                            <a href="#" class="news-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- News Card 2 -->
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400" 
+                                 alt="Writing workshop">
+                            <span class="news-category">Workshop</span>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span><i class="far fa-calendar"></i> January 10, 2026</span>
+                                <span><i class="far fa-user"></i> Editorial Team</span>
+                            </div>
+                            <h3 class="news-title">New Poetry Collection "Lambada Geetalu" Released</h3>
+                            <p class="news-excerpt">
+                                A new anthology featuring works from 25 emerging Banjara poets has been 
+                                published. The collection celebrates traditional themes with modern expressions...
+                            </p>
+                            <a href="#" class="news-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- News Card 3 -->
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400" 
+                                 alt="Award ceremony">
+                            <span class="news-category">Awards</span>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span><i class="far fa-calendar"></i> January 5, 2026</span>
+                                <span><i class="far fa-user"></i> Secretary</span>
+                            </div>
+                            <h3 class="news-title">Call for Nominations: Banjara Sahitya Ratna Award 2026</h3>
+                            <p class="news-excerpt">
+                                Nominations are invited for the prestigious literary award recognizing 
+                                outstanding contributions to Banjara literature. Last date: February 28, 2026...
+                            </p>
+                            <a href="#" class="news-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- News Card 4 -->
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400" 
+                                 alt="Digital library launch">
+                            <span class="news-category">Digital</span>
+                        </div>
+                        <div class="news-content">
+                            <div class="news-meta">
+                                <span><i class="far fa-calendar"></i> December 28, 2025</span>
+                                <span><i class="far fa-user"></i> Tech Team</span>
+                            </div>
+                            <h3 class="news-title">Digital Archive Project: 500+ Manuscripts Now Online</h3>
+                            <p class="news-excerpt">
+                                Our ongoing digitization project has made over 500 rare manuscripts and 
+                                historical documents accessible to researchers worldwide...
+                            </p>
+                            <a href="#" class="news-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-pattern"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <a href="index.html" class="footer-logo">
+                            <div class="logo-icon">
+                                <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Karnataka Banjara Sahitya Parishattu Logo" class="footer-logo-img">
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-kannada">ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು</span>
+                                <span class="logo-english">Karnataka Banjara Sahitya Parishattu</span>
+                            </div>
+                        </a>
+                        <p class="footer-description" data-lang-kn="ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಪ್ರಚಾರ ಮಾಡಲು ಸಮರ್ಪಿತವಾಗಿದೆ." data-lang-en="Dedicated to preserving and promoting the rich literary heritage of the Banjara community.">
+                            ಬಂಜಾರ ಸಮುದಾಯದ ಶ್ರೀಮಂತ ಸಾಹಿತ್ಯಿಕ ಪರಂಪರೆಯನ್ನು ಸಂರಕ್ಷಿಸಲು ಮತ್ತು ಪ್ರಚಾರ ಮಾಡಲು ಸಮರ್ಪಿತವಾಗಿದೆ.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4 data-lang-kn="ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು" data-lang-en="Quick Links">ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು</h4>
+                            <ul>
+                                <li><a href="index.html" data-lang-kn="ಮುಖಪುಟ" data-lang-en="Home">ಮುಖಪುಟ</a></li>
+                                <li><a href="about.html" data-lang-kn="ನಮ್ಮ ಬಗ್ಗೆ" data-lang-en="About Us">ನಮ್ಮ ಬಗ್ಗೆ</a></li>
+                                <li><a href="events.html" data-lang-kn="ಕಾರ್ಯಕ್ರಮಗಳು" data-lang-en="Events">ಕಾರ್ಯಕ್ರಮಗಳು</a></li>
+                                <li><a href="news.html" data-lang-kn="ಸುದ್ದಿ" data-lang-en="News">ಸುದ್ದಿ</a></li>
+                                <li><a href="publications.html" data-lang-kn="ಪ್ರಕಟಣೆಗಳು" data-lang-en="Publications">ಪ್ರಕಟಣೆಗಳು</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 data-lang-kn="ಸಂಪನ್ಮೂಲಗಳು" data-lang-en="Resources">ಸಂಪನ್ಮೂಲಗಳು</h4>
+                            <ul>
+                                <li><a href="#" data-lang-kn="ಡಿಜಿಟಲ್ ಆರ್ಕೈವ್" data-lang-en="Digital Archive">ಡಿಜಿಟಲ್ ಆರ್ಕೈವ್</a></li>
+                                <li><a href="#" data-lang-kn="ಸಂಶೋಧನಾ ಪತ್ರಿಕೆಗಳು" data-lang-en="Research Papers">ಸಂಶೋಧನಾ ಪತ್ರಿಕೆಗಳು</a></li>
+                                <li><a href="#" data-lang-kn="ಹಸ್ತಪ್ರತಿಗಳು" data-lang-en="Manuscripts">ಹಸ್ತಪ್ರತಿಗಳು</a></li>
+                                <li><a href="#" data-lang-kn="ಆಡಿಯೋ ಗ್ರಂಥಾಲಯ" data-lang-en="Audio Library">ಆಡಿಯೋ ಗ್ರಂಥಾಲಯ</a></li>
+                                <li><a href="#" data-lang-kn="ವೀಡಿಯೋ ಗ್ಯಾಲರಿ" data-lang-en="Video Gallery">ವೀಡಿಯೋ ಗ್ಯಾಲರಿ</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 data-lang-kn="ಭಾಗವಹಿಸಿ" data-lang-en="Get Involved">ಭಾಗವಹಿಸಿ</h4>
+                            <ul>
+                                <li><a href="register.html" data-lang-kn="ಸದಸ್ಯತ್ವ" data-lang-en="Membership">ಸದಸ್ಯತ್ವ</a></li>
+                                <li><a href="#" data-lang-kn="ಸ್ವಯಂಸೇವಕ" data-lang-en="Volunteer">ಸ್ವಯಂಸೇವಕ</a></li>
+                                <li><a href="#" data-lang-kn="ದೇಣಿಗೆ ನೀಡಿ" data-lang-en="Donate">ದೇಣಿಗೆ ನೀಡಿ</a></li>
+                                <li><a href="#" data-lang-kn="ಬರಹ ಸಲ್ಲಿಸಿ" data-lang-en="Submit Writing">ಬರಹ ಸಲ್ಲಿಸಿ</a></li>
+                                <li><a href="#" data-lang-kn="ನಮ್ಮೊಂದಿಗೆ ಪಾಲುದಾರರಾಗಿ" data-lang-en="Partner With Us">ನಮ್ಮೊಂದಿಗೆ ಪಾಲುದಾರರಾಗಿ</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h4 data-lang-kn="ಸಂಪರ್ಕ ಮಾಹಿತಿ" data-lang-en="Contact Info">ಸಂಪರ್ಕ ಮಾಹಿತಿ</h4>
+                            <ul class="footer-contact">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span data-lang-kn="256, ಬಂಜಾರ ಕಾಲೋನಿ<br>ಗೋಕುಲ ರಸ್ತೆ, ಹುಬ್ಬಳ್ಳಿ - 580027<br>ಕರ್ನಾಟಕ" data-lang-en="256, Banjara Colony<br>Gokula Road, Hubballi - 590027<br>Karnataka">ಬಂಜಾರ ಸಾಹಿತ್ಯ ಭವನ<br>ಬೆಂಗಳೂರು, ಕರ್ನಾಟಕ</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone"></i>
+                                    <span>+91 xxxxxxxxxx</span>
+                                </li>
+                                <li style="align-items: center;">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>banjarasahityaparishattu@gmail.com</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright" data-lang-kn="© 2026 ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ." data-lang-en="© 2026 Karnataka Banjara Sahitya Parishattu. All Rights Reserved.">
+                        © 2026 ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು. ಎಲ್ಲಾ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.
+                    </p>
+                    <ul class="footer-legal">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
