@@ -2213,49 +2213,66 @@ input, textarea, select {
     /* Hide side images on mobile to prevent overlap */
     .sant-image-container,
     .nagada-image-container {
-        display: none;
+        display: none !important;
+    }
+    
+    .hero-logo {
+        margin-left: 0 !important;
+    }
+    
+    .hero-logo-img {
+        width: 100px !important;
+        height: auto !important;
+    }
+    
+    .hero-tagline {
+        margin-left: 0 !important;
+    }
+    
+    .hero-buttons {
+        margin-left: 0 !important;
     }
     
     /* Header logo adjustments for mobile */
     .navbar {
-        height: 60px;
-        padding: var(--space-xs) 0;
+        height: 60px !important;
+        padding: var(--space-xs) 0 !important;
     }
     
     .logo-icon {
-        width: 45px;
-        height: 35px;
-        margin-top: 0;
-        padding: 2px;
+        width: 45px !important;
+        height: 35px !important;
+        margin-top: 0 !important;
+        padding: 2px !important;
     }
     
     .logo {
-        gap: var(--space-xs);
+        gap: var(--space-xs) !important;
     }
     
     /* Fix mobile menu styling */
     .nav-menu {
-        background: var(--color-white);
-        z-index: 1000;
+        background: var(--color-white) !important;
+        z-index: 1000 !important;
     }
     
     .nav-link {
-        text-align: center;
-        background: transparent;
+        text-align: center !important;
+        background: transparent !important;
     }
     
     .nav-link.active {
-        background: rgba(196, 30, 58, 0.1);
-        border-radius: var(--radius-sm);
+        background: rgba(196, 30, 58, 0.1) !important;
+        border-radius: var(--radius-sm) !important;
     }
     
     .dropdown-toggle {
-        justify-content: center;
+        justify-content: center !important;
     }
     
     /* Hide logo text on tablets and mobile */
     .logo-text {
-        display: none;
+        display: none !important;
     }
     
     /* Gallery adjustments */
