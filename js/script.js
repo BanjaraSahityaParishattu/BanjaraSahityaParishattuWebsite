@@ -5,8 +5,71 @@
  * ================================================================
  */
 
+/**
+ * ==================== SITE CONFIGURATION ====================
+ * Change these settings to control website behavior
+ */
+const SITE_CONFIG = {
+    // Mobile View Toggle
+    // Set to TRUE  → Show website on mobile devices
+    // Set to FALSE → Hide website on mobile devices (shows "Desktop Only" message)
+    MOBILE_VIEW_ENABLED: false
+};
+
+// Apply mobile view setting
+function applyMobileOptimization() {
+    const isMobile = window.innerWidth <= 768;
+    
+    if (SITE_CONFIG.MOBILE_VIEW_ENABLED) {
+        document.body.classList.add('mobile-optimized');
+        document.body.classList.remove('mobile-disabled');
+        removeMobileBlocker();
+    } else {
+        document.body.classList.remove('mobile-optimized');
+        if (isMobile) {
+            document.body.classList.add('mobile-disabled');
+            showMobileBlocker();
+        }
+    }
+}
+
+// Show blocker message on mobile when disabled
+function showMobileBlocker() {
+    if (document.getElementById('mobile-blocker')) return;
+    
+    const blocker = document.createElement('div');
+    blocker.id = 'mobile-blocker';
+    blocker.innerHTML = `
+        <div class="mobile-blocker-content">
+            <img src="images/HomePage/banjara-parishath-logo.jpg" alt="Logo" class="blocker-logo">
+            <h2>ಕರ್ನಾಟಕ ಬಂಜಾರ ಸಾಹಿತ್ಯ ಪರಿಷತ್ತು (ರಿ)</h2>
+            <p>Karnataka Banjara Sahitya Parishattu (R)</p>
+            <div class="blocker-message">
+                <i class="fas fa-desktop"></i>
+                <span>Please visit this website on a desktop or laptop for the best experience.</span>
+            </div>
+            <p class="blocker-subtext">ದಯವಿಟ್ಟು ಉತ್ತಮ ಅನುಭವಕ್ಕಾಗಿ ಡೆಸ್ಕ್‌ಟಾಪ್ ಅಥವಾ ಲ್ಯಾಪ್‌ಟಾಪ್‌ನಲ್ಲಿ ಈ ವೆಬ್‌ಸೈಟ್ ಅನ್ನು ಭೇಟಿ ಮಾಡಿ.</p>
+        </div>
+    `;
+    document.body.appendChild(blocker);
+}
+
+// Remove blocker when enabled
+function removeMobileBlocker() {
+    const blocker = document.getElementById('mobile-blocker');
+    if (blocker) blocker.remove();
+}
+
+// Re-check on window resize
+window.addEventListener('resize', function() {
+    applyMobileOptimization();
+});
+
 // Wait for the DOM to be fully loaded before running scripts
 document.addEventListener('DOMContentLoaded', function() {
+    
+    // Apply mobile optimization setting first
+    applyMobileOptimization();
     
     // Initialize all components
     initLanguageSwitcher();  // Initialize language first

@@ -2898,3 +2898,106 @@ input, select, textarea {
         page-break-inside: avoid;
     }
 }
+
+/* ==================== MOBILE VIEW TOGGLE ==================== */
+/* 
+ * MOBILE VIEW TOGGLE
+ * Controlled by SITE_CONFIG.MOBILE_VIEW_ENABLED in js/script.js
+ * 
+ * TRUE  = Show website on mobile
+ * FALSE = Hide website on mobile, show "Desktop Only" message
+ */
+
+/* Hide everything when mobile is disabled */
+body.mobile-disabled > *:not(#mobile-blocker) {
+    display: none !important;
+}
+
+/* Mobile Blocker Overlay */
+#mobile-blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--color-dark) 0%, #2A1A3A 50%, var(--color-primary-dark) 100%);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.mobile-blocker-content {
+    text-align: center;
+    color: var(--color-white);
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.blocker-logo {
+    width: 120px;
+    height: auto;
+    border-radius: var(--radius-md);
+    background: var(--color-white);
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mobile-blocker-content h2 {
+    font-size: 1.1rem;
+    color: var(--color-secondary);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.mobile-blocker-content > p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+}
+
+.blocker-message {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.blocker-message i {
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.blocker-message span {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-white);
+}
+
+.blocker-subtext {
+    font-size: 0.75rem !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+/* When mobile-optimized is DISABLED but site should show (desktop) */
+@media (min-width: 769px) {
+    #mobile-blocker {
+        display: none !important;
+    }
+    
+    body.mobile-disabled > * {
+        display: block !important;
+    }
+}
