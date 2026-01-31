@@ -13,7 +13,7 @@ const SITE_CONFIG = {
     // Mobile View Toggle
     // Set to TRUE  → Show website on mobile devices
     // Set to FALSE → Hide website on mobile devices (shows "Desktop Only" message)
-    MOBILE_VIEW_ENABLED: false
+    MOBILE_VIEW_ENABLED: true
 };
 
 // Apply mobile view setting
