@@ -671,6 +671,7 @@ input, textarea, select {
     z-index: 1;
 }
 
+
 /* Sant Sevalal Maharaj Image - Top Left Corner */
 .sant-image-container {
     position: absolute;
@@ -2035,6 +2036,7 @@ input, textarea, select {
 .footer-contact li span {
     font-size: var(--text-sm);
     color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
 }
 
 .footer-bottom {
@@ -2195,23 +2197,37 @@ input, textarea, select {
     
     /* Top bar adjustments - IMPROVED FOR MOBILE */
     .top-bar {
-        height: var(--top-bar-height);
-        padding: 0;
+        height: auto;
+        min-height: var(--top-bar-height);
+        padding: 4px var(--space-sm);
     }
     
     .top-bar-content {
-        justify-content: center;
-        gap: var(--space-md);
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--space-sm);
     }
     
     .contact-info {
-        display: none;
+        display: flex;
+        flex-direction: row;
+        gap: var(--space-md);
+        flex: 1;
+    }
+    
+    .contact-info span {
+        font-size: 0.65rem;
+    }
+    
+    /* Hide social icons in header on mobile */
+    .social-icons {
+        display: none !important;
     }
     
     .top-bar-right {
-        width: 100%;
-        justify-content: center;
-        gap: var(--space-md);
+        flex-shrink: 0;
+        justify-content: flex-end;
+        gap: var(--space-sm);
     }
     
     .language-switcher {
@@ -2281,19 +2297,22 @@ input, textarea, select {
         top: calc(var(--header-height) + var(--top-bar-height));
         left: 0;
         right: 0;
+        bottom: 0;
         flex-direction: column;
         background: var(--color-white);
-        padding: var(--space-lg);
+        padding: var(--space-xl);
         gap: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height var(--transition-base);
+        opacity: 0;
+        visibility: hidden;
+        overflow-y: auto;
+        transition: opacity var(--transition-base), visibility var(--transition-base);
         box-shadow: var(--shadow-lg);
         z-index: 999;
     }
     
     .nav-menu.active {
-        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
     }
     
     .nav-menu li {
@@ -2356,7 +2375,7 @@ input, textarea, select {
     
     
     .hero-tagline {
-        margin-top: var(--space-sm);
+        margin-top: 20px !important; /* Better visibility spacing */
         margin-left: 0;
         font-size: var(--text-xs);
     }
@@ -2404,18 +2423,25 @@ input, textarea, select {
         height: 30px;
     }
     
-    /* MOBILE: All 3 images aligned in same row - visible below header */
-    .hero-content {
-        padding-top: 44px !important; /* Moved up by 2 inches total */
+    /* MOBILE: All 3 images aligned - ABSOLUTE POSITIONING */
+    /* Home page hero content - moved up by 1.5 inch total */
+    .hero .hero-content {
+        padding-top: 63px !important; /* 111px - 48px = 63px */
+        margin-top: 0 !important;
     }
     
-    /* Sevalal - LEFT */
+    /* Other pages - normal spacing */
+    .hero-content {
+        margin-top: 0 !important;
+    }
+    
+    /* Sevalal - LEFT - bound to header with 0.5 inch gap */
     .sant-image-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         position: absolute !important;
-        top: 131px !important;
+        top: 48px !important; /* 0.5 inch below header */
         left: 10px !important;
         z-index: 20 !important;
         width: 100px !important;
@@ -2438,20 +2464,20 @@ input, textarea, select {
         color: var(--color-secondary) !important;
     }
     
-    /* Nagada - RIGHT */
+    /* Nagada - RIGHT - bound to header with 0.5 inch gap */
     .nagada-image-container {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         position: absolute !important;
-        top: 142px !important; /* Moved down by 3mm */
+        top: 58px !important; /* 0.5 inch + slight offset to align with Sevalal */
         right: 10px !important;
         z-index: 20 !important;
         width: 100px !important;
     }
     
     .nagada-image {
-        max-width: 70px !important;
+        max-width: 60px !important;
         max-height: 85px !important;
         margin: 0 !important;
         filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4)) !important;
@@ -2470,10 +2496,13 @@ input, textarea, select {
         margin-left: 0 !important;
     }
     
-    /* CENTER LOGO - aligned with side images */
+    /* CENTER LOGO with Established text - bound to header with 0.5 inch gap */
     .hero-logo {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
         position: absolute !important;
-        top: 121px !important;
+        top: 48px !important; /* 0.5 inch below header */
         left: 50% !important;
         transform: translateX(-50%) !important;
         z-index: 20 !important;
@@ -2484,16 +2513,17 @@ input, textarea, select {
         height: auto !important;
     }
     
-    /* Welcome button - moved down by 10mm total */
-    .hero-buttons {
-        margin-top: 62px !important; /* Added 0.25 inch more */
+    /* Hero tagline (Established) - directly below logo */
+    .hero-logo .hero-tagline {
+        display: block !important;
+        margin: 8px 0 0 0 !important;
+        font-size: 0.75rem !important;
+        text-align: center !important;
     }
     
-    .hero-tagline {
-        margin-left: 0 !important;
-    }
-    
+    /* Welcome button */
     .hero-buttons {
+        margin-top: 15px !important;
         margin-left: 0 !important;
     }
     
@@ -2514,23 +2544,27 @@ input, textarea, select {
         gap: var(--space-xs) !important;
     }
     
-    /* Hamburger menu for small screens */
+    /* Hamburger menu for small screens - full screen */
     .nav-menu {
         position: fixed;
         top: calc(var(--header-height) + var(--top-bar-height));
         left: 0;
         right: 0;
+        bottom: 0;
         flex-direction: column;
         background: var(--color-white);
-        padding: var(--space-md);
-        max-height: 0;
-        overflow: hidden;
+        padding: var(--space-lg);
+        opacity: 0;
+        visibility: hidden;
+        overflow-y: auto;
         box-shadow: var(--shadow-lg);
         z-index: 999;
+        transition: opacity var(--transition-base), visibility var(--transition-base);
     }
     
     .nav-menu.active {
-        max-height: 500px;
+        opacity: 1;
+        visibility: visible;
     }
     
     .nav-menu li {
@@ -2599,19 +2633,42 @@ input, textarea, select {
         grid-template-columns: 1fr;
     }
     
-    /* Footer adjustments */
+    /* Footer adjustments - 2 columns centered on mobile */
     .footer-links {
-        grid-template-columns: 1fr;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        gap: var(--space-3xl);
+        text-align: left;
+        margin-top: -48px; /* Push upward by ~0.5 inch */
+    }
+    
+    .footer-column {
+        padding: var(--space-sm);
+        flex: 0 0 auto;
+        max-width: 45%;
+    }
+    
+    .footer-column h4 {
+        font-size: 0.8rem;
+        margin-bottom: var(--space-xs);
     }
     
     .footer-column h4::after {
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        transform: none;
+    }
+    
+    .footer-column ul li {
+        margin-bottom: 2px;
+    }
+    
+    .footer-column ul li a {
+        font-size: 0.7rem;
     }
     
     .footer-contact li {
-        justify-content: center;
+        justify-content: flex-start;
+        font-size: 0.65rem;
     }
     
     .footer-bottom-content {
@@ -2647,15 +2704,23 @@ input, textarea, select {
     
     /* Compact top bar for small screens */
     .top-bar {
-        padding: 0 var(--space-xs);
+        padding: 4px var(--space-xs);
     }
     
     .top-bar-content {
+        gap: var(--space-xs);
+    }
+    
+    .contact-info {
         gap: var(--space-sm);
     }
     
+    .contact-info span {
+        font-size: 0.55rem;
+    }
+    
     .top-bar-right {
-        gap: var(--space-sm);
+        gap: var(--space-xs);
     }
     
     .language-switcher {
@@ -2716,13 +2781,14 @@ input, textarea, select {
         padding: 12px 16px !important;
     }
     
-    /* SMALL SCREENS: All 3 images aligned */
-    .hero-content {
-        padding-top: 14px !important; /* Moved up by 2 inches total */
+    /* SMALL SCREENS: Absolute positioning */
+    .hero .hero-content {
+        padding-top: 43px !important; /* 91px - 48px = 43px */
+        margin-top: 0 !important;
     }
     
     .sant-image-container {
-        top: 116px !important;
+        top: 48px !important; /* 0.5 inch below header */
         left: 5px !important;
         width: 85px !important;
     }
@@ -2738,13 +2804,13 @@ input, textarea, select {
     }
     
     .nagada-image-container {
-        top: 127px !important; /* Moved down by 3mm */
+        top: 55px !important; /* 0.5 inch + slight offset */
         right: 5px !important;
         width: 85px !important;
     }
     
     .nagada-image {
-        max-width: 55px !important;
+        max-width: 50px !important;
         max-height: 70px !important;
     }
     
@@ -2753,26 +2819,31 @@ input, textarea, select {
     }
     
     .hero-logo {
-        top: 106px !important;
+        top: 48px !important; /* 0.5 inch below header */
     }
     
     .hero-logo-img {
         width: 90px !important;
     }
     
+    .hero-logo .hero-tagline {
+        font-size: 0.65rem !important;
+        margin: 6px 0 0 0 !important;
+    }
+    
     /* Hero section adjustments */
     .hero {
         min-height: calc(100vh - var(--header-height) - var(--top-bar-height));
-        padding-top: var(--space-lg);
+        padding-top: var(--space-sm);
     }
     
     .hero-content {
-        padding: var(--space-md) 0;
+        padding: var(--space-xs) 0;
     }
     
     .hero-tagline {
         font-size: var(--text-xs);
-        margin-top: var(--space-xs);
+        margin-top: 3px !important;
     }
     
     .hero-title {
@@ -2821,6 +2892,33 @@ input, textarea, select {
         grid-template-columns: repeat(2, 1fr);
     }
     
+    /* Footer 2 columns centered on very small screens */
+    .footer-links {
+        display: flex !important;
+        justify-content: center !important;
+        gap: var(--space-2xl) !important;
+        margin-top: -48px !important; /* Push upward by ~0.5 inch */
+    }
+    
+    .footer-column {
+        padding: var(--space-xs) !important;
+        flex: 0 0 auto !important;
+        max-width: 48% !important;
+    }
+    
+    .footer-column h4 {
+        font-size: 0.7rem !important;
+        margin-bottom: 4px !important;
+    }
+    
+    .footer-column ul li a {
+        font-size: 0.6rem !important;
+    }
+    
+    .footer-contact li {
+        font-size: 0.55rem !important;
+    }
+    
     .experience-badge {
         left: 50%;
         transform: translateX(-50%);
@@ -2836,8 +2934,15 @@ input, textarea, select {
 }
 
 /* ==================== MOBILE ENHANCEMENTS ==================== */
-/* Prevent text overflow on very small screens */
-.footer-contact li span,
+/* Allow text wrapping on very small screens */
+@media (max-width: 768px) {
+    .footer-contact li span {
+        white-space: normal;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
 .contact-card p,
 .news-meta span,
 .contact-info span {
